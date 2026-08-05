@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cli6v0y6jnsjh"]
+
+[sub_resource type="Gradient" id="Gradient_wnlen"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3m8t"]
+gradient = SubResource("Gradient_wnlen")
+
+[node name="TitleScreen" type="Node2D" unique_id=1640286383]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1142331085]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture2D_t3m8t")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1117153763]
+clip_contents = false
+offset_left = 211.0
+offset_right = 847.0
+offset_bottom = 130.0
+theme_override_constants/outline_size = 29
+theme_override_font_sizes/normal_font_size = 108
+text = "Eng-inuity"
+horizontal_alignment = 1
+
+[node name="MainBtnContainer" type="VBoxContainer" parent="." unique_id=388777638]
+offset_left = 400.0
+offset_top = 168.0
+offset_right = 722.0
+offset_bottom = 631.0
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="StartBtn" type="Button" parent="MainBtnContainer" unique_id=25427348]
+layout_mode = 2
+text = "Start"
+
+[node name="SettingsBtn" type="Button" parent="MainBtnContainer" unique_id=334460408]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="MainBtnContainer" unique_id=1340136581]
+layout_mode = 2
+text = "Quit"

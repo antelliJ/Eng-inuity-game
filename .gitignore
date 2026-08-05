@@ -2,6 +2,8 @@
 .godot/
 .nomedia
 
+addons/godot_super-wakatime/
+
 # Godot-specific ignores
 .import/
 export.cfg
