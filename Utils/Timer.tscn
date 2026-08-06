@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cpaapc2dtkbnn"]
+
+[ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="1_ai6d1"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_h45cn"]
+
+[sub_resource type="Gradient" id="Gradient_mip8p"]
+offsets = PackedFloat32Array(0.43965518)
+colors = PackedColorArray(0.09803922, 0.09411765, 0.06666667, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i2rim"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h45cn"]
+noise = SubResource("FastNoiseLite_i2rim")
+color_ramp = SubResource("Gradient_mip8p")
+
+[node name="TimerScene" type="Node2D" unique_id=152143875]
+
+[node name="timer" type="RichTextLabel" parent="." unique_id=1919174324]
+offset_right = 270.0
+offset_bottom = 108.0
+theme = ExtResource("1_ai6d1")
+text = "0.00"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1180882978]
+offset_top = 190.0
+offset_right = 54.0
+offset_bottom = 542.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("NoiseTexture2D_h45cn")
+texture_progress = ExtResource("2_h45cn")

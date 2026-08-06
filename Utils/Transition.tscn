@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bkunsfdvbaohx"]
+
+[ext_resource type="Shader" uid="uid://drks45oao55ec" path="res://Utils/Transition.gdshader" id="1_xu5jt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3m8t"]
+shader = ExtResource("1_xu5jt")
+shader_parameter/playing = 1.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_boevr"]
+
+[node name="Node2D" type="Node2D" unique_id=553048083]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1925857179]
+material = SubResource("ShaderMaterial_t3m8t")
+offset_right = 1145.0
+offset_bottom = 641.0
+texture = SubResource("PlaceholderTexture2D_boevr")

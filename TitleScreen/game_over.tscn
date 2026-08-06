@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://whrgew15lxs4"]
+
+[ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="1_kp4s0"]
+
+[node name="GameOver" type="Control" unique_id=1204252607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kp4s0")
+
+[node name="Winner" type="Control" parent="." unique_id=85949218]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Winner" unique_id=1318145534]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -437.0
+offset_right = 486.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/normal_font_size = 32
+text = "You Did it You Won!
+
+Keep going to increase your score! It will get harder though..."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Winner" unique_id=1252720996]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Winner" unique_id=1766573102]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = 192.0
+offset_right = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="ContinueBtn" type="Button" parent="Winner/VBoxContainer" unique_id=878765120]
+layout_mode = 2
+text = "Continue"
+
+[node name="ReturnBtn" type="Button" parent="Winner/VBoxContainer" unique_id=1223292313]
+layout_mode = 2
+text = "Return to menu"
+
+[node name="DeathSad" type="Control" parent="." unique_id=1460012931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DeathSad" unique_id=1833929750]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -437.0
+offset_right = 486.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/normal_font_size = 32
+text = "Looks like you didn't make it"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathSad" unique_id=525493446]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = 192.0
+offset_right = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="ReturnBtn" type="Button" parent="DeathSad/VBoxContainer" unique_id=1094281310]
+layout_mode = 2
+text = "Return to menu"

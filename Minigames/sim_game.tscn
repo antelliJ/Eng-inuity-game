@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6goeto5yuhyu"]
+
+[node name="SimGame" type="Node2D" unique_id=1527848004]
+
+[node name="WindScrolling" type="Parallax2D" parent="." unique_id=304173396]
+
+[node name="TextureRect" type="TextureRect" parent="WindScrolling" unique_id=1435541697]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,25 +1,32 @@
 [gd_scene format=3 uid="uid://cli6v0y6jnsjh"]
 
-[sub_resource type="Gradient" id="Gradient_wnlen"]
+[ext_resource type="Script" uid="uid://dqgise63nflkv" path="res://TitleScreen/title_screen.gd" id="1_3obt4"]
+[ext_resource type="Shader" uid="uid://jp5rwjnag6ci" path="res://TitleScreen/title_screen.gdshader" id="2_xvftn"]
+[ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="3_ux371"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3m8t"]
-gradient = SubResource("Gradient_wnlen")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bmv2"]
+shader = ExtResource("2_xvftn")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xvftn"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1640286383]
+script = ExtResource("1_3obt4")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1142331085]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("GradientTexture2D_t3m8t")
+material = SubResource("ShaderMaterial_4bmv2")
+offset_right = 1145.0
+offset_bottom = 641.0
+texture = SubResource("PlaceholderTexture2D_xvftn")
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=1117153763]
 clip_contents = false
 offset_left = 211.0
 offset_right = 847.0
 offset_bottom = 130.0
-theme_override_constants/outline_size = 29
+theme = ExtResource("3_ux371")
 theme_override_font_sizes/normal_font_size = 108
 text = "Eng-inuity"
+scroll_active = false
 horizontal_alignment = 1
 
 [node name="MainBtnContainer" type="VBoxContainer" parent="." unique_id=388777638]
@@ -27,6 +34,7 @@ offset_left = 400.0
 offset_top = 168.0
 offset_right = 722.0
 offset_bottom = 631.0
+theme = ExtResource("3_ux371")
 theme_override_constants/separation = 26
 alignment = 1
 
@@ -41,3 +49,6 @@ text = "Settings"
 [node name="QuitBtn" type="Button" parent="MainBtnContainer" unique_id=1340136581]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="MainBtnContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MainBtnContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

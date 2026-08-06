@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://3uocgxdqdxlh"]
+
+[ext_resource type="Texture2D" uid="uid://b6s2tb2x3goot" path="res://Minigames/aligator clips.png" id="1_7wkom"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="2_q26qo"]
+
+[sub_resource type="Curve2D" id="Curve2D_q26qo"]
+_data = {
+"points": PackedVector2Array(147.63011, 24.801859, -147.63011, -24.801859, 490, 430, 67.31933, 70.86245, -67.31933, -70.86245, 113, 260, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3m8t"]
+radius = 55.0
+height = 154.0
+
+[node name="ClipParts" type="Node2D" unique_id=1687516376]
+
+[node name="BG" type="TextureRect" parent="." unique_id=1800498295]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path2D" type="Path2D" parent="." unique_id=454581950]
+curve = SubResource("Curve2D_q26qo")
+
+[node name="Line2D" type="Line2D" parent="Path2D" unique_id=952903122]
+
+[node name="Draggable" type="Area2D" parent="." unique_id=1116600226]
+position = Vector2(541, 382)
+
+[node name="Sprite2D" type="Sprite2D" parent="Draggable" unique_id=1500319413]
+texture_filter = 1
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("1_7wkom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=779902488]
+shape = SubResource("CapsuleShape2D_t3m8t")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("2_q26qo")]

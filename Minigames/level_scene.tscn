@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dfkajnloblwqj"]
+
+[ext_resource type="Texture2D" uid="uid://0qsmrowmy7sx" path="res://Bliss.jpg" id="1_arqon"]
+[ext_resource type="Script" uid="uid://doeav5y84chlp" path="res://Minigames/timer_screen.gd" id="1_xj23d"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_xj23d"]
+
+[node name="LevelScene" type="Node2D" unique_id=692687480]
+script = ExtResource("1_xj23d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1320901484]
+offset_right = 1128.0
+offset_bottom = 980.0
+texture = ExtResource("1_arqon")
+expand_mode = 3
+
+[node name="LifeContainer" type="HBoxContainer" parent="." unique_id=114559006]
+offset_left = 306.0
+offset_top = 136.0
+offset_right = 830.0
+offset_bottom = 264.0
+
+[node name="Life1" type="TextureRect" parent="LifeContainer" unique_id=822068021]
+layout_mode = 2
+texture = ExtResource("2_xj23d")
+
+[node name="Life2" type="TextureRect" parent="LifeContainer" unique_id=1945268090]
+layout_mode = 2
+texture = ExtResource("2_xj23d")
+
+[node name="Life3" type="TextureRect" parent="LifeContainer" unique_id=668448420]
+layout_mode = 2
+texture = ExtResource("2_xj23d")
+
+[node name="Life4" type="TextureRect" parent="LifeContainer" unique_id=840234974]
+layout_mode = 2
+texture = ExtResource("2_xj23d")
+
+[node name="Life5" type="TextureRect" parent="LifeContainer" unique_id=1154242396]
+layout_mode = 2
+texture = ExtResource("2_xj23d")
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=1093310303]
+offset_left = 520.0
+offset_top = 299.0
+offset_right = 759.0
+offset_bottom = 384.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1203623825]
+offset_left = 544.0
+offset_top = 424.0
+offset_right = 710.0
+offset_bottom = 515.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"

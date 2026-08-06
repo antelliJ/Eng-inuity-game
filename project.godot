@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Enginuity"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://1pdpd527g1yp"
 
 [display]
 

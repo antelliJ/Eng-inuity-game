@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://df5nyyjbqg04s"]
+
+[ext_resource type="FontFile" uid="uid://bb00uiunattl7" path="res://assets/Kenney Mini Square.ttf" id="1_et7sk"]
+
+[resource]
+default_font = ExtResource("1_et7sk")
+RichTextLabel/constants/outline_size = 29
+RichTextLabel/font_sizes/normal_font_size = 48
