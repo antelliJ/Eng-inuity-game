@@ -1,10 +1,11 @@
 shader_type canvas_item;
 
 uniform float playing : hint_range(0.0, 1.0, 0.05) = 0.5;
+uniform vec2 aspect = vec2(1.0, 1.777777); // 1152/648 = 1.77
+uniform vec2 numOfTiles = vec2(16., 9.);
+uniform bool reverse = true;
+uniform vec2 pixelsPerTile = vec2(16,16);
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
 
 vec2 grid(vec2 uv, float columns, float rows) {
 	return fract(vec2(uv.x * columns, uv.y * rows));
@@ -23,20 +24,17 @@ vec4 square(vec2 uv, float width) {
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-	float centerCircle = (distance(vec2(0.5), UV));
+	vec2 posInSquare = UV * numOfTiles;
+	vec2 pixelPos = round(posInSquare * pixelsPerTile);
+	vec2 frac = fract(pixelPos / pixelsPerTile);
+	vec2 direction = abs(frac - 0.5); // get manhattan distance
+	float dist = distance(vec2(0.5)/aspect, UV/aspect);
 	
-	//float centerCircle = circle(UV, 0.2, 0.005);
-	float smoothCircle = smoothstep(0.0, 0.5*(playing*7.0), centerCircle);
-	
-	vec3 color = vec3(0);
-	//color += smoothCircle;
-	COLOR = square(UV, centerCircle*1.0);
-	
-	//COLOR = vec4(color, 1.0 - smoothCircle);
+	if (direction.x+direction.y + dist >= playing *3.){
+		if (!reverse) {
+			discard;
+		}
+	}else if (reverse){
+		discard;
+	}
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}

@@ -6,22 +6,34 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bmv2"]
 shader = ExtResource("2_xvftn")
+shader_parameter/aspect = Vector2(1, 1.777777)
+shader_parameter/offset = Vector2(0.775, 0.65)
+shader_parameter/margin = Vector2(0.153, 0.161)
+shader_parameter/bg = Color(1, 1, 1, 1)
+shader_parameter/point_1 = Vector2(0.2, 0.105)
+shader_parameter/point_2 = Vector2(0.74, 0.105)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xvftn"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1640286383]
 script = ExtResource("1_3obt4")
 
+[node name="BG-Color" type="ColorRect" parent="." unique_id=1525232340]
+offset_right = 1157.0
+offset_bottom = 655.0
+color = Color(0.101960786, 0.10980392, 0.10980392, 1)
+
 [node name="Background" type="TextureRect" parent="." unique_id=1142331085]
+visible = false
 material = SubResource("ShaderMaterial_4bmv2")
-offset_right = 1145.0
-offset_bottom = 641.0
+offset_right = 1156.0
+offset_bottom = 653.0
 texture = SubResource("PlaceholderTexture2D_xvftn")
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=1117153763]
 clip_contents = false
-offset_left = 211.0
-offset_right = 847.0
+offset_left = 263.0
+offset_right = 899.0
 offset_bottom = 130.0
 theme = ExtResource("3_ux371")
 theme_override_font_sizes/normal_font_size = 108

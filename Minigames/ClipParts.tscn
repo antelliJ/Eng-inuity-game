@@ -1,38 +1,48 @@
 [gd_scene format=3 uid="uid://3uocgxdqdxlh"]
 
 [ext_resource type="Texture2D" uid="uid://b6s2tb2x3goot" path="res://Minigames/aligator clips.png" id="1_7wkom"]
+[ext_resource type="Script" uid="uid://b332vi8842jkr" path="res://Minigames/clip_parts.gd" id="1_o0etv"]
 [ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="2_q26qo"]
 
 [sub_resource type="Curve2D" id="Curve2D_q26qo"]
 _data = {
-"points": PackedVector2Array(147.63011, 24.801859, -147.63011, -24.801859, 490, 430, 67.31933, 70.86245, -67.31933, -70.86245, 113, 260, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(-4.724167, -107.474724, 4.724167, 107.474724, 0, 0, -139.36284, -75.586624, 139.36284, 75.586624, 175, 295, 0, 0, -147.63011, -24.801859, 490, 430)
 }
 point_count = 3
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3m8t"]
-radius = 55.0
+radius = 40.90863
 height = 154.0
 
 [node name="ClipParts" type="Node2D" unique_id=1687516376]
+script = ExtResource("1_o0etv")
 
 [node name="BG" type="TextureRect" parent="." unique_id=1800498295]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Path2D" type="Path2D" parent="." unique_id=454581950]
+[node name="Path1" type="Path2D" parent="." unique_id=454581950]
 curve = SubResource("Curve2D_q26qo")
 
-[node name="Line2D" type="Line2D" parent="Path2D" unique_id=952903122]
+[node name="Line1" type="Line2D" parent="Path1" unique_id=952903122]
+default_color = Color(0, 0, 0, 1)
 
-[node name="Draggable" type="Area2D" parent="." unique_id=1116600226]
-position = Vector2(541, 382)
+[node name="Clip1" type="Area2D" parent="." unique_id=1116600226]
+position = Vector2(494, 431)
 
-[node name="Sprite2D" type="Sprite2D" parent="Draggable" unique_id=1500319413]
+[node name="Sprite2D" type="Sprite2D" parent="Clip1" unique_id=1500319413]
 texture_filter = 1
+position = Vector2(49, -48)
 scale = Vector2(4.71875, 4.71875)
 texture = ExtResource("1_7wkom")
+hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=779902488]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clip1" unique_id=779902488]
+position = Vector2(49, -52)
+rotation = 0.6719518
 shape = SubResource("CapsuleShape2D_t3m8t")
 
 [node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("2_q26qo")]
+
+[connection signal="mouse_entered" from="Clip1" to="." method="_on_clip_1_mouse_entered"]
+[connection signal="mouse_exited" from="Clip1" to="." method="_on_clip_1_mouse_exited"]

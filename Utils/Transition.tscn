@@ -1,17 +1,125 @@
 [gd_scene format=3 uid="uid://bkunsfdvbaohx"]
 
+[ext_resource type="Script" uid="uid://b5lgdblylcbl7" path="res://Utils/transition.gd" id="1_boevr"]
 [ext_resource type="Shader" uid="uid://drks45oao55ec" path="res://Utils/Transition.gdshader" id="1_xu5jt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3m8t"]
 shader = ExtResource("1_xu5jt")
-shader_parameter/playing = 1.0
+shader_parameter/playing = 0.0
+shader_parameter/aspect = Vector2(1, 1.777777)
+shader_parameter/numOfTiles = Vector2(32, 18)
+shader_parameter/reverse = false
+shader_parameter/pixelsPerTile = Vector2(4, 4)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_boevr"]
+[sub_resource type="Gradient" id="Gradient_boevr"]
+offsets = PackedFloat32Array(0.144)
+colors = PackedColorArray(0.101960786, 0.10980392, 0.10980392, 1)
 
-[node name="Node2D" type="Node2D" unique_id=553048083]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mkbxi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xu5jt"]
+width = 1
+height = 1
+noise = SubResource("FastNoiseLite_mkbxi")
+color_ramp = SubResource("Gradient_boevr")
+
+[sub_resource type="Animation" id="Animation_mkbxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_me7eh"]
+resource_name = "TransitionIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5328),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5hsjl"]
+resource_name = "TransitionOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5328),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2p53f"]
+_data = {
+&"RESET": SubResource("Animation_mkbxi"),
+&"TransitionIn": SubResource("Animation_me7eh"),
+&"TransitionOut": SubResource("Animation_5hsjl")
+}
+
+[node name="TransitionManager" type="CanvasLayer" unique_id=488470067]
+layer = 5
+script = ExtResource("1_boevr")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1925857179]
 material = SubResource("ShaderMaterial_t3m8t")
 offset_right = 1145.0
 offset_bottom = 641.0
-texture = SubResource("PlaceholderTexture2D_boevr")
+texture = SubResource("NoiseTexture2D_xu5jt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1545059013]
+libraries/ = SubResource("AnimationLibrary_2p53f")
