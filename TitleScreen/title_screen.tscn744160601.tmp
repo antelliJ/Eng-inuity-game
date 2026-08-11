@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dqgise63nflkv" path="res://TitleScreen/title_screen.gd" id="1_3obt4"]
 [ext_resource type="Shader" uid="uid://jp5rwjnag6ci" path="res://TitleScreen/title_screen.gdshader" id="2_xvftn"]
 [ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="3_ux371"]
-[ext_resource type="Texture2D" uid="uid://cw7ao6e50cpxy" path="res://assets/bot3.png" id="4_2e2ej"]
+[ext_resource type="Texture2D" uid="uid://ttit6de7jtsp" path="res://assets/bot2.png" id="4_2e2ej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bmv2"]
 shader = ExtResource("2_xvftn")
@@ -13,7 +13,6 @@ shader_parameter/margin = Vector2(0.153, 0.161)
 shader_parameter/bg = Color(1, 1, 1, 1)
 shader_parameter/point_1 = Vector2(0.2, 0.105)
 shader_parameter/point_2 = Vector2(0.74, 0.105)
-shader_parameter/is_line = true
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xvftn"]
 
@@ -24,11 +23,6 @@ script = ExtResource("1_3obt4")
 offset_right = 1157.0
 offset_bottom = 655.0
 color = Color(0.101960786, 0.10980392, 0.10980392, 1)
-
-[node name="BG-Color2" type="ColorRect" parent="." unique_id=1616650657]
-offset_right = 1157.0
-offset_bottom = 655.0
-color = Color(0, 0.24705882, 0.4862745, 1)
 
 [node name="Background" type="TextureRect" parent="." unique_id=1142331085]
 material = SubResource("ShaderMaterial_4bmv2")
@@ -69,11 +63,11 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Bot2" type="Sprite2D" parent="." unique_id=1339172186]
-position = Vector2(229, 187)
+position = Vector2(203.00002, 87)
 rotation = -0.41015238
-scale = Vector2(0.266, 0.266)
+scale = Vector2(0.43586877, 0.43586877)
 texture = ExtResource("4_2e2ej")
-offset = Vector2(0, -80)
+offset = Vector2(65.085, -104.065)
 
 [connection signal="pressed" from="MainBtnContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainBtnContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

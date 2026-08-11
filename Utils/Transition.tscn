@@ -119,6 +119,7 @@ script = ExtResource("1_boevr")
 material = SubResource("ShaderMaterial_t3m8t")
 offset_right = 1145.0
 offset_bottom = 641.0
+mouse_filter = 2
 texture = SubResource("NoiseTexture2D_xu5jt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1545059013]

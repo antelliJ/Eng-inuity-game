@@ -1,5 +1,6 @@
 extends Node2D
 @onready var background: TextureRect = $Background
+@onready var bot_2: Sprite2D = $Bot2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +15,9 @@ func _process(delta: float) -> void:
 	var color_s :float = (time_elapsed/5000) - floor((time_elapsed/1000))
 	var color : Color = Color.from_hsv(color_s,0.2, 1.0);
 	background.material.set_shader_parameter("bg", color)
+	
+	var bot_scale :float =  (sin(time_elapsed/500) * .2)+0.3
+	bot_2.scale = Vector2(bot_scale,bot_scale)
 
 func _on_start_btn_pressed() -> void:
 	Transition.playTransition("res://Minigames/ClipParts.tscn") # assume everything loads instantly

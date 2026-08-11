@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://cb7te3q22sa8"]
 
+[ext_resource type="Texture2D" uid="uid://soh3b82cvhq8" path="res://Minigames/dangerLick/battery.png" id="1_i3rl1"]
+[ext_resource type="Texture2D" uid="uid://cwlrpekif8ucy" path="res://assets/bot3-mouthless.png" id="1_l7ihh"]
+[ext_resource type="Texture2D" uid="uid://cd5gxr31xppwi" path="res://Minigames/dangerLick/tongue.png" id="2_i3rl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3m8t"]
+size = Vector2(112, 202)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4bmv2"]
 radius = 32.0
 height = 86.0
@@ -7,6 +14,14 @@ height = 86.0
 [node name="DontTouchDangerous" type="Node2D" unique_id=706383348]
 
 [node name="Battery" type="Area2D" parent="." unique_id=241845]
+
+[node name="Sprite2D" type="Sprite2D" parent="Battery" unique_id=658567114]
+scale = Vector2(0.5234375, 0.5234375)
+texture = ExtResource("1_i3rl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Battery" unique_id=9703027]
+position = Vector2(5, -2)
+shape = SubResource("RectangleShape2D_t3m8t")
 
 [node name="Wire" type="Area2D" parent="." unique_id=2067051035]
 
@@ -16,6 +31,15 @@ height = 86.0
 position = Vector2(582, 418)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerTongueFinger" unique_id=227306120]
+position = Vector2(2, 83)
+rotation = 3.1415927
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("1_l7ihh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTongueFinger" unique_id=904608933]
 shape = SubResource("CapsuleShape2D_4bmv2")
+
+[node name="Tongue" type="Sprite2D" parent="PlayerTongueFinger" unique_id=974710194]
+position = Vector2(0.99999976, -9)
+scale = Vector2(0.217, 0.217)
+texture = ExtResource("2_i3rl1")

@@ -9,6 +9,8 @@ uniform vec4 bg : source_color = vec4(1.0);
 uniform vec2 point_1 = vec2(0.0);
 uniform vec2 point_2 = vec2(0.5);
 
+uniform bool is_line = false;
+
 //interesting parameter options:
 //---green cube world---
 //Offset: -0.61, -0.305
@@ -40,11 +42,13 @@ void fragment() {
 	
 	vec2 grid = grid(UV+(TIME/14.0), 16.0, 9.0);
 	vec2 grid_colors = vec2(1.-smoothstep(margin.x, margin.y, grid.r), 1.-smoothstep(margin.x, margin.y, grid.g));//1.-smoothstep(margin.x, margin.y, grid.r+grid.g))
+	
 	float dist = distance((UV/aspect)+offset, grid_colors);
 	
 	//vec3 color = vec3(grid.r, grid.g, 0.2);
 	vec3 color = bg.rgb;
 	color = vec3(1.-dist);
+	//color = any(greaterThan(grid_colors.rgb, vec3(0.0))) ? vec3(1.0) :vec3(0.0);
 	color *= bg.rgb;
 	//vec2 point1 = vec2(0.45, 0.2);
 	//vec2 point2 = vec2(0.8, 0.75);
