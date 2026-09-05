@@ -9,7 +9,6 @@ var mouse_in_clip1: bool = false
 var move_clip1: bool = false
 
 @onready var path_1: Path2D = $Path1
-var default_path_copy : Curve2D
 @onready var line_1: Line2D = $Path1/Line1
 
 @onready var cover_sprite: Sprite2D = $Clip1/coverSprite
@@ -17,7 +16,7 @@ var default_path_copy : Curve2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	default_path_copy = path_1.curve.duplicate()
+	path_1.curve = path_1.curve.duplicate(true)
 	draw_line_from_curve(path_1, line_1)
 	
 	clip_1.mouse_entered.connect(_on_clip_1_mouse_entered)
@@ -27,9 +26,7 @@ func _ready() -> void:
 	cover_sprite.self_modulate = wire_color
 
 
-func restore_default_path()->void:
-	if default_path_copy:
-		path_1.curve.copy_from_resource(default_path_copy)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

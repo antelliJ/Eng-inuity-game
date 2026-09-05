@@ -3,8 +3,8 @@ https://github.com/antelliJ/Eng-inuity-game
 
 An engineering themed warioware like game
 
-
-[INSERT GAMEPLAY GIF]
+<video controls src="GithubAssets/showcase 2.mp4" title="Title"></video>
+(the glitching at the end is editing)
 
 Below is where you can try it out now
 [LINK TO ITCH GAME](https://o7m8.itch.io/enginuity)
