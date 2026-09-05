@@ -3,7 +3,8 @@ https://github.com/antelliJ/Eng-inuity-game
 
 An engineering themed warioware like game
 
-<video controls src="[GithubAssets/showcase 2.mp4](https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb)" title="Title"></video>
+<!-- <video controls src="[GithubAssets/showcase 2.mp4](https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb)" title="Title"></video> -->
+https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb
 (the glitching at the end is editing)
 
 Below is where you can try it out now
