@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://23y4t8ng7yes"]
+
+[ext_resource type="Shader" uid="uid://c7h1bqad8gcs7" path="res://Utils/hue_shift.gdshader" id="1_g7qxl"]
+
+[resource]
+shader = ExtResource("1_g7qxl")
+shader_parameter/Shift_Hue = 0.0

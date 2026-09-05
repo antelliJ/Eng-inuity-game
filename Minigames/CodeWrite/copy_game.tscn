@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cjt8ul00osyn0"]
+
+[ext_resource type="PackedScene" uid="uid://ckhdqal2bcbos" path="res://Minigames/CodeWrite/code_writing.tscn" id="1_mirvr"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="1_un334"]
+[ext_resource type="Texture2D" uid="uid://trpwusiwkg6s" path="res://Minigames/CodeWrite/monitor.png" id="2_823iw"]
+[ext_resource type="Material" uid="uid://23y4t8ng7yes" path="res://Minigames/CodeWrite/hue_shift_shader.tres" id="3_un334"]
+[ext_resource type="Texture2D" uid="uid://78fglswll2io" path="res://Minigames/CodeWrite/monitor-text1.png" id="4_4fs8i"]
+[ext_resource type="Texture2D" uid="uid://cbwfuht0o7ixh" path="res://Minigames/CodeWrite/monitor-text2.png" id="5_6q4s0"]
+
+[node name="CopyGame" type="Node2D" unique_id=925193877]
+
+[node name="BG" type="TextureRect" parent="." unique_id=1141545370]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("1_un334")]
+
+[node name="Monitor" type="Sprite2D" parent="." unique_id=1825330225]
+position = Vector2(572, 174)
+scale = Vector2(0.55446374, 0.55446374)
+texture = ExtResource("2_823iw")
+
+[node name="MonitorText1" type="Sprite2D" parent="Monitor" unique_id=1203154718]
+material = ExtResource("3_un334")
+position = Vector2(23.446045, 9.017822)
+scale = Vector2(1.0195035, 1.0195035)
+texture = ExtResource("4_4fs8i")
+
+[node name="MonitorText2" type="Sprite2D" parent="Monitor" unique_id=123369319]
+visible = false
+material = ExtResource("3_un334")
+position = Vector2(-1.8035889, 0)
+scale = Vector2(0.99320203, 0.99320203)
+texture = ExtResource("5_6q4s0")
+
+[node name="CodeWriting" parent="." unique_id=1313640749 instance=ExtResource("1_mirvr")]
+position = Vector2(287, 351)
+scale = Vector2(0.55703986, 0.55703986)

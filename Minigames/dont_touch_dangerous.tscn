@@ -1,34 +1,127 @@
 [gd_scene format=3 uid="uid://cb7te3q22sa8"]
 
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="1_3hysh"]
 [ext_resource type="Texture2D" uid="uid://soh3b82cvhq8" path="res://Minigames/dangerLick/battery.png" id="1_i3rl1"]
+[ext_resource type="Script" uid="uid://cremj6wppnutf" path="res://Minigames/dont_touch_dangerous.gd" id="1_j1dga"]
 [ext_resource type="Texture2D" uid="uid://cwlrpekif8ucy" path="res://assets/bot3-mouthless.png" id="1_l7ihh"]
 [ext_resource type="Texture2D" uid="uid://cd5gxr31xppwi" path="res://Minigames/dangerLick/tongue.png" id="2_i3rl1"]
+[ext_resource type="Texture2D" uid="uid://dmyuqmm2q3b0n" path="res://assets/desk.png" id="2_n68mk"]
+[ext_resource type="Script" uid="uid://dqdecnlnqtnhe" path="res://Minigames/dangerLick/enemy/battery.gd" id="3_7kmmh"]
+[ext_resource type="Script" uid="uid://dicams6lqciu5" path="res://Minigames/dangerLick/player_movement.gd" id="3_j1dga"]
+[ext_resource type="Script" uid="uid://d3hj4g1v3fkxv" path="res://Minigames/dangerLick/enemy/bug.gd" id="5_n68mk"]
+[ext_resource type="Texture2D" uid="uid://dycjnqgrkj8kk" path="res://Minigames/dangerLick/bug.png" id="5_r5x4a"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4bmv2"]
+a = Vector2(1153, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r5x4a"]
+a = Vector2(4, -636)
+b = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3m8t"]
-size = Vector2(112, 202)
+size = Vector2(95, 166)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3m8t"]
+radius = 17.0
+height = 92.0
+
+[sub_resource type="Gradient" id="Gradient_n68mk"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.3167939, 0.6793893, 1)
+colors = PackedColorArray(0.7208462, 0.9553291, 0.76723945, 1, 0.7564119, 0.66235447, 0.19443992, 1, 0.96398336, 0.060175143, 0.054900147, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3m8t"]
+radius = 39.293766
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bmv2"]
+size = Vector2(80, 46)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4bmv2"]
-radius = 32.0
+radius = 21.0
 height = 86.0
 
 [node name="DontTouchDangerous" type="Node2D" unique_id=706383348]
+script = ExtResource("1_j1dga")
 
-[node name="Battery" type="Area2D" parent="." unique_id=241845]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1621206244]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_n68mk")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("1_3hysh")]
+z_index = 2
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=267297776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=828968717]
+shape = SubResource("SegmentShape2D_4bmv2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=933603540]
+position = Vector2(1, 647)
+shape = SubResource("SegmentShape2D_4bmv2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=2083014092]
+position = Vector2(1, 647)
+shape = SubResource("SegmentShape2D_r5x4a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1121879977]
+position = Vector2(1151, 644)
+shape = SubResource("SegmentShape2D_r5x4a")
+
+[node name="Battery" type="Area2D" parent="." unique_id=241845 node_paths=PackedStringArray("player")]
+collision_mask = 2
+script = ExtResource("3_7kmmh")
+player = NodePath("../PlayerTongueFinger")
 
 [node name="Sprite2D" type="Sprite2D" parent="Battery" unique_id=658567114]
 scale = Vector2(0.5234375, 0.5234375)
 texture = ExtResource("1_i3rl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Battery" unique_id=9703027]
-position = Vector2(5, -2)
+position = Vector2(6.5, -15)
 shape = SubResource("RectangleShape2D_t3m8t")
 
 [node name="Wire" type="Area2D" parent="." unique_id=2067051035]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wire" unique_id=2037303433]
+shape = SubResource("CapsuleShape2D_t3m8t")
+
+[node name="Bug" type="RigidBody2D" parent="." unique_id=853552355 node_paths=PackedStringArray("player")]
+position = Vector2(847, 278)
+collision_mask = 2
+gravity_scale = 0.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 30
+linear_damp = 2.0
+script = ExtResource("5_n68mk")
+player = NodePath("../PlayerTongueFinger")
+modulateRamp = SubResource("Gradient_n68mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bug" unique_id=783310586]
+scale = Vector2(0.24444444, 0.24444444)
+texture = ExtResource("5_r5x4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bug" unique_id=53143578]
+position = Vector2(4, 25)
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="AttackTimer" type="Timer" parent="Bug" unique_id=13500675]
+one_shot = true
 
 [node name="Toaster" type="Area2D" parent="." unique_id=2125105031]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toaster" unique_id=611716564]
+shape = SubResource("RectangleShape2D_4bmv2")
 
 [node name="PlayerTongueFinger" type="CharacterBody2D" parent="." unique_id=673693142]
 position = Vector2(582, 418)
+rotation = 1.5707964
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("3_j1dga")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerTongueFinger" unique_id=227306120]
 position = Vector2(2, 83)
@@ -43,3 +136,7 @@ shape = SubResource("CapsuleShape2D_4bmv2")
 position = Vector2(0.99999976, -9)
 scale = Vector2(0.217, 0.217)
 texture = ExtResource("2_i3rl1")
+
+[connection signal="body_entered" from="Battery" to="." method="_on_battery_body_entered"]
+[connection signal="body_entered" from="Bug" to="." method="_on_bug_body_entered"]
+[connection signal="timeout" from="Bug/AttackTimer" to="Bug" method="_on_timer_timeout"]

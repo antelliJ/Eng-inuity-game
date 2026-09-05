@@ -20,8 +20,15 @@ func _process(delta: float) -> void:
 	bot_2.scale = Vector2(bot_scale,bot_scale)
 
 func _on_start_btn_pressed() -> void:
-	Transition.playTransition("res://Minigames/ClipParts.tscn") # assume everything loads instantly
+	#Transition.playTransition("res://Minigames/ClipParts/ClipParts.tscn") # assume everything loads instantly
 	#get_tree().change_scene_to_file("res://level_scene.tscn")
+	
+	Global.shuffle_minigames()
+	Global.next_minigame()
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_settings_btn_pressed() -> void:
+	Global.toggle_settings.emit()

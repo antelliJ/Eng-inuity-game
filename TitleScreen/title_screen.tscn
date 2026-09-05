@@ -75,5 +75,12 @@ scale = Vector2(0.266, 0.266)
 texture = ExtResource("4_2e2ej")
 offset = Vector2(0, -80)
 
+[node name="Control" type="Control" parent="." unique_id=1082160268]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="MainBtnContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MainBtnContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainBtnContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

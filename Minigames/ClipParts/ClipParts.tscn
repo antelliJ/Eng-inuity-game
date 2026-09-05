@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://3uocgxdqdxlh"]
+
+[ext_resource type="Script" uid="uid://b332vi8842jkr" path="res://Minigames/ClipParts/clip_parts.gd" id="1_oju7k"]
+[ext_resource type="Texture2D" uid="uid://dmyuqmm2q3b0n" path="res://assets/desk.png" id="2_ghkwu"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="2_q825c"]
+[ext_resource type="Texture2D" uid="uid://b6s2tb2x3goot" path="res://Minigames/aligator clips.png" id="3_6jg1k"]
+[ext_resource type="Script" uid="uid://ehuljbiqtjia" path="res://Minigames/ClipParts/wire.gd" id="3_q825c"]
+[ext_resource type="Script" uid="uid://bhe765p7ckls0" path="res://Minigames/ClipParts/connect_wire.gd" id="4_ghkwu"]
+[ext_resource type="Texture2D" uid="uid://da03a5k8pgycj" path="res://Minigames/ClipParts/aligator clips-covers.png" id="5_6jg1k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t3m8t"]
+particle_flag_disable_z = true
+angle_min = -344.6
+angle_max = 257.1
+direction = Vector3(1, 4.11, 0)
+spread = 90.0
+initial_velocity_min = 67.85
+initial_velocity_max = 317.85
+gravity = Vector3(0, 98, 0)
+scale_min = 4.5699997
+scale_max = 4.5699997
+color = Color(0.37630063, 0.8801184, 0.9999998, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 3.31
+
+[sub_resource type="Curve2D" id="Curve2D_o0etv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 981, -8, -3.6666667, -62.333336, 3.6666667, 62.333336, 1091, 101, 0, 0, 0, 0, 1064, 237)
+}
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3m8t"]
+radius = 31.780497
+
+[sub_resource type="Curve2D" id="Curve2D_tlfv1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1330.9707, 580.0941, -3.6666667, -62.333336, 3.6666667, 62.333336, 1141.3165, 466.7437, 0, 0, 0, 0, 1057.7101, 592.48926)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_q26qo"]
+_data = {
+"points": PackedVector2Array(-4.724167, -107.474724, 4.724167, 107.474724, 0, 0, -139.36284, -75.586624, 139.36284, 75.586624, 175, 295, 0, 0, -147.63011, -24.801859, 490, 430)
+}
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3m8t"]
+radius = 40.90863
+height = 154.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bmv2"]
+radius = 32.01562
+
+[sub_resource type="Curve2D" id="Curve2D_ghkwu"]
+_data = {
+"points": PackedVector2Array(46.060593, 62.59516, -46.060593, -62.59516, -9, 41, 98.02638, 159.4405, -98.02638, -159.4405, 529, 183, 0, 0, -147.63011, -24.801859, 321, 301)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_yuck8"]
+_data = {
+"points": PackedVector2Array(46.060593, 62.59516, -46.060593, -62.59516, 904, 775, 98.02638, 159.4405, -98.02638, -159.4405, 700, 523, 0, 0, -147.63011, -24.801859, 490, 430)
+}
+point_count = 3
+
+[node name="ClipParts" type="Node2D" unique_id=1687516376 node_paths=PackedStringArray("connections")]
+script = ExtResource("1_oju7k")
+connections = [NodePath("CONNECTIONS/ConnectGND"), NodePath("CONNECTIONS/ConnectRED"), NodePath("CONNECTIONS/ConnectYEL")]
+
+[node name="BG" type="TextureRect" parent="." unique_id=1800498295]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ghkwu")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("2_q825c")]
+
+[node name="CONNECTIONS" type="Node2D" parent="." unique_id=2007681101]
+
+[node name="ConnectGND" type="Node2D" parent="CONNECTIONS" unique_id=992876472 node_paths=PackedStringArray("my_col", "desired_col")]
+script = ExtResource("4_ghkwu")
+my_col = NodePath("Area2D")
+desired_col = NodePath("../../WIRES/Wire1/Clip1/Snapper")
+
+[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectGND" unique_id=288556857]
+position = Vector2(1054, 238)
+amount = 67
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_t3m8t")
+
+[node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectGND" unique_id=1210898361]
+curve = SubResource("Curve2D_o0etv")
+
+[node name="Line2D" type="Line2D" parent="CONNECTIONS/ConnectGND/Path2D" unique_id=1244116614]
+default_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="CONNECTIONS/ConnectGND" unique_id=1206391612]
+position = Vector2(1058, 248)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CONNECTIONS/ConnectGND/Area2D" unique_id=67439630]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="ConnectRED" type="Node2D" parent="CONNECTIONS" unique_id=1745384352 node_paths=PackedStringArray("my_col", "desired_col")]
+position = Vector2(165.99998, 719)
+rotation = -2.5589788
+script = ExtResource("4_ghkwu")
+my_col = NodePath("Area2D")
+desired_col = NodePath("../../WIRES/Wire2/Clip1/Snapper")
+
+[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectRED" unique_id=1195423408]
+position = Vector2(69, 306.56)
+amount = 67
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_t3m8t")
+
+[node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectRED" unique_id=231692917]
+position = Vector2(-985, 68.56)
+curve = SubResource("Curve2D_o0etv")
+
+[node name="Line2D" type="Line2D" parent="CONNECTIONS/ConnectRED/Path2D" unique_id=1289476900]
+default_color = Color(0.78, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="CONNECTIONS/ConnectRED" unique_id=1901826348]
+position = Vector2(70.516785, 296.0395)
+rotation = 2.5589788
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CONNECTIONS/ConnectRED/Area2D" unique_id=1830804701]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="ConnectYEL" type="Node2D" parent="CONNECTIONS" unique_id=2003362190 node_paths=PackedStringArray("my_col", "desired_col")]
+position = Vector2(165.99998, 719)
+rotation = -2.5589788
+script = ExtResource("4_ghkwu")
+my_col = NodePath("Area2D")
+desired_col = NodePath("../../WIRES/Wire3/Clip1/Snapper")
+
+[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectYEL" unique_id=419109606]
+position = Vector2(76.86579, 661.90375)
+rotation = 1.2915436
+amount = 67
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_t3m8t")
+
+[node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectYEL" unique_id=616572036]
+position = Vector2(-985, 68.56)
+curve = SubResource("Curve2D_tlfv1")
+
+[node name="Line2D" type="Line2D" parent="CONNECTIONS/ConnectYEL/Path2D" unique_id=1595133826]
+default_color = Color(0.85490197, 0.7882353, 0.019607844, 1)
+
+[node name="Area2D" type="Area2D" parent="CONNECTIONS/ConnectYEL" unique_id=1610198791]
+position = Vector2(75.500015, 658.0135)
+rotation = 2.5589788
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CONNECTIONS/ConnectYEL/Area2D" unique_id=1624149131]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="WIRES" type="Node2D" parent="." unique_id=1115933279]
+
+[node name="Wire1" type="Node2D" parent="WIRES" unique_id=453544284]
+script = ExtResource("3_q825c")
+
+[node name="Path1" type="Path2D" parent="WIRES/Wire1" unique_id=454581950]
+curve = SubResource("Curve2D_q26qo")
+
+[node name="Line1" type="Line2D" parent="WIRES/Wire1/Path1" unique_id=952903122]
+default_color = Color(0, 0, 0, 1)
+
+[node name="Clip1" type="Area2D" parent="WIRES/Wire1" unique_id=1116600226]
+position = Vector2(494, 431)
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="WIRES/Wire1/Clip1" unique_id=1500319413]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("3_6jg1k")
+hframes = 2
+
+[node name="coverSprite" type="Sprite2D" parent="WIRES/Wire1/Clip1" unique_id=504402838]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("5_6jg1k")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire1/Clip1" unique_id=779902488]
+position = Vector2(49, -52)
+rotation = 0.6719518
+shape = SubResource("CapsuleShape2D_t3m8t")
+
+[node name="Snapper" type="Area2D" parent="WIRES/Wire1/Clip1" unique_id=593060169]
+position = Vector2(75, -77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire1/Clip1/Snapper" unique_id=2059425242]
+shape = SubResource("CircleShape2D_4bmv2")
+
+[node name="Wire2" type="Node2D" parent="WIRES" unique_id=2127159896]
+position = Vector2(252, -104)
+script = ExtResource("3_q825c")
+wire_color = Color(0.62, 0.0806, 0.089589864, 1)
+
+[node name="Path1" type="Path2D" parent="WIRES/Wire2" unique_id=806373519]
+curve = SubResource("Curve2D_ghkwu")
+
+[node name="Line1" type="Line2D" parent="WIRES/Wire2/Path1" unique_id=1207344641]
+default_color = Color(0, 0, 0, 1)
+
+[node name="Clip1" type="Area2D" parent="WIRES/Wire2" unique_id=1194698913]
+position = Vector2(325, 297.00003)
+rotation = -3.4836771
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="WIRES/Wire2/Clip1" unique_id=1229081497]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("3_6jg1k")
+hframes = 2
+
+[node name="coverSprite" type="Sprite2D" parent="WIRES/Wire2/Clip1" unique_id=101614122]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("5_6jg1k")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire2/Clip1" unique_id=1804896684]
+position = Vector2(49, -52)
+rotation = 0.6719518
+shape = SubResource("CapsuleShape2D_t3m8t")
+
+[node name="Snapper" type="Area2D" parent="WIRES/Wire2/Clip1" unique_id=268256243]
+position = Vector2(75, -77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire2/Clip1/Snapper" unique_id=1653559870]
+shape = SubResource("CircleShape2D_4bmv2")
+
+[node name="Wire3" type="Node2D" parent="WIRES" unique_id=2099374293]
+position = Vector2(252, -104)
+script = ExtResource("3_q825c")
+wire_color = Color(0.8553915, 0.78648794, 0.0199527, 1)
+
+[node name="Path1" type="Path2D" parent="WIRES/Wire3" unique_id=1491412703]
+curve = SubResource("Curve2D_yuck8")
+
+[node name="Line1" type="Line2D" parent="WIRES/Wire3/Path1" unique_id=830867863]
+default_color = Color(0, 0, 0, 1)
+
+[node name="Clip1" type="Area2D" parent="WIRES/Wire3" unique_id=308376367]
+position = Vector2(494, 431)
+rotation = -2.645919
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="WIRES/Wire3/Clip1" unique_id=946921908]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("3_6jg1k")
+hframes = 2
+
+[node name="coverSprite" type="Sprite2D" parent="WIRES/Wire3/Clip1" unique_id=531988198]
+z_index = 2
+texture_filter = 1
+position = Vector2(49, -48)
+scale = Vector2(4.71875, 4.71875)
+texture = ExtResource("5_6jg1k")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire3/Clip1" unique_id=1455873177]
+position = Vector2(49, -52)
+rotation = 0.6719518
+shape = SubResource("CapsuleShape2D_t3m8t")
+
+[node name="Snapper" type="Area2D" parent="WIRES/Wire3/Clip1" unique_id=692822419]
+position = Vector2(75, -77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WIRES/Wire3/Clip1/Snapper" unique_id=966210415]
+shape = SubResource("CircleShape2D_4bmv2")
+
+[connection signal="mouse_entered" from="WIRES/Wire1/Clip1" to="." method="_on_clip_1_mouse_entered"]
+[connection signal="mouse_exited" from="WIRES/Wire1/Clip1" to="." method="_on_clip_1_mouse_exited"]
+[connection signal="mouse_entered" from="WIRES/Wire2/Clip1" to="." method="_on_clip_1_mouse_entered"]
+[connection signal="mouse_exited" from="WIRES/Wire2/Clip1" to="." method="_on_clip_1_mouse_exited"]
+[connection signal="mouse_entered" from="WIRES/Wire3/Clip1" to="." method="_on_clip_1_mouse_entered"]
+[connection signal="mouse_exited" from="WIRES/Wire3/Clip1" to="." method="_on_clip_1_mouse_exited"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ccn22cd4vi2sa"]
+
+[ext_resource type="Script" uid="uid://1pdpd527g1yp" path="res://Globals/globalMain.gd" id="1_d5otk"]
+[ext_resource type="PackedScene" uid="uid://byirk5o54rj07" path="res://Utils/settings_panel.tscn" id="2_knnc8"]
+
+[node name="GlobalMain" type="Node" unique_id=1218474025]
+script = ExtResource("1_d5otk")
+settings_scene = ExtResource("2_knnc8")

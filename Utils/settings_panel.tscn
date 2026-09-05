@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://byirk5o54rj07"]
+
+[ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="1_4lwcm"]
+[ext_resource type="Script" uid="uid://cuco6jta5asa2" path="res://Utils/settings_panel.gd" id="2_1g2hm"]
+
+[node name="SettingsPanel" type="Control" unique_id=331561134]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4lwcm")
+script = ExtResource("2_1g2hm")
+
+[node name="Panel" type="Panel" parent="." unique_id=886933003]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -229.0
+offset_right = 356.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1396012187]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="Panel" unique_id=174856008]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_bottom = 46.0
+grow_horizontal = 0
+text = "x"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1329738438]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1701905911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer" unique_id=989700514]
+layout_mode = 2
+text = "Sorry, nothing to see right now"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
