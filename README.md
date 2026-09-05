@@ -11,10 +11,10 @@ An engineering themed warioware like game
 Below is where you can try it out now
 [LINK TO ITCH GAME](https://o7m8.itch.io/enginuity)
 
-It's a web build, so it shuold launch just as easy as clicking 'run game'!
+It's a web build, so it should launch on most popular OS' and browsers just as easy as clicking 'run game'!
 
 ### Controls:
-Arrow keys ***and/or*** mouse (click and drag, pointer direction)
+Arrow keys ***and/or*** mouse (click and drag, pointer direction) </br>
 ^ Hopefully the minigame tips that I'll add in the future will state what is necessary
 
 ### Minigames:
@@ -22,8 +22,9 @@ Arrow keys ***and/or*** mouse (click and drag, pointer direction)
     - Click and drag the alligator clips to the corresponding wire
 - Avoid fatality
     - Don't swallow bugs or osha-uncertified batteries
+- *more coming soon*
 
 
 ### Behind the scenes
 
-Built with Godot, with my own assets (other than placeholders that might be hidden around the source!)
+Built with Godot 4.7, using my own assets (other than placeholders that might be hidden around the source!)
