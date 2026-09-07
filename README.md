@@ -4,7 +4,7 @@
 # Eng-inuity-game
 https://github.com/antelliJ/Eng-inuity-game
 
-An engineering themed warioware like game. This means its fastpaced with a collection of microgames to test reaction time and problem solving skills. Each minigame has a new engineering-inspired task, and more challenges are planned in the future.
+An engineering themed warioware like game. This means its fastpaced with a collection of microgames to test reaction time and problem solving skills, each minigame has a new engineering-inspired task, and more challenges are planned in the future.
 
 <!-- <video controls src="[GithubAssets/showcase 2.mp4](https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb)" title="Title"></video> -->
 
