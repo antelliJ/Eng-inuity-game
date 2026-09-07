@@ -1,3 +1,6 @@
+
+
+
 # Eng-inuity-game
 https://github.com/antelliJ/Eng-inuity-game
 
@@ -5,8 +8,15 @@ An engineering themed warioware like game. This means its fastpaced with a colle
 
 <!-- <video controls src="[GithubAssets/showcase 2.mp4](https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb)" title="Title"></video> -->
 
+
+https://github.com/user-attachments/assets/0002292a-856b-4a9a-8b1c-67847f675bb8
+
+
+
+<img width="2544" height="1415" alt="Screenshot (487)" src="https://github.com/user-attachments/assets/0d01faab-9003-41d4-946d-23dab423ae96" />
 <!-- <video src="https://github.com/user-attachments/assets/99b1d502-56f2-4ecd-a366-c2e5401ce6eb" width="1280"></video>
 (the glitching at the end is editing) -->
+
 ### Features
 
 - Fast paced engineering themed minigames
@@ -36,12 +46,21 @@ read the instruction before the minigame, complete the objective, and continue t
 
 ### Minigames:
 - Wire matching
-    - Connect the alligator clips to the corresponding wire by click and dragging. Once connected the wires stop sparking 
+    - Connect the alligator clips to the corresponding wire by click and dragging. Once connected the wires stop sparking
+    - <img width="2534" height="1411" alt="Screenshot (488)" src="https://github.com/user-attachments/assets/e73bc135-cbba-4bae-af38-50f79c32f2b7" />
+
 - Avoid fatality
     - Avoid swallowing bugs or osha-uncertified batteries. Dodge using movement keys and use the cursor to look away
+    - <img width="2531" height="1414" alt="Screenshot (486)" src="https://github.com/user-attachments/assets/32e5dc95-48cb-41a6-b29e-9df7320423cf" />
+
 - "write" code
-    - Press the copy and paste buttons (in order) to maintain suitable code output 
+    - Press the copy and paste buttons (in order) to maintain suitable code output, just pay attention to where the keys go!
+    - <img width="2527" height="1416" alt="Screenshot (485)" src="https://github.com/user-attachments/assets/e25443cb-8273-4b30-a90c-cd69ea2b7087" />
+
 - *more coming soon*
+
+
+<img width="2561" height="1428" alt="Screenshot (489)" src="https://github.com/user-attachments/assets/28773b3f-e373-4797-b1d0-fb3ba901d26d" />
 
 
 ### Behind the scenes
