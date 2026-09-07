@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cd8env5qppqkn"]
+
+[ext_resource type="PackedScene" uid="uid://i1jry7gn5mdj" path="res://Minigames/minigame_class.tscn" id="1_ka7r2"]
+[ext_resource type="Texture2D" uid="uid://c5imahocg5ukn" path="res://assets/keyset/cursor-select.png" id="2_cclot"]
+[ext_resource type="PackedScene" uid="uid://cjt8ul00osyn0" path="res://Minigames/CodeWrite/copy_write.tscn" id="3_s22ow"]
+
+[node name="MinigameClass" unique_id=256276361 instance=ExtResource("1_ka7r2")]
+gameName = "Code \"writing\""
+gameHeadline = "Paste all the code!"
+instructionImages = Array[Texture2D]([ExtResource("2_cclot")])
+
+[node name="CopyGame" parent="." index="2" unique_id=925193877 instance=ExtResource("3_s22ow")]

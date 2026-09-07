@@ -12,7 +12,7 @@ var attackWaitTime:float = 1.0
 func _ready() -> void:
 	print("bug ready called")
 	attackWaitTime = attack_timer.wait_time
-	await get_tree().create_timer(0.5, true).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	attack_timer.start()
 
 

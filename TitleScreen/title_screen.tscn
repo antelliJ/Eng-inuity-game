@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://jp5rwjnag6ci" path="res://TitleScreen/title_screen.gdshader" id="2_xvftn"]
 [ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="3_ux371"]
 [ext_resource type="Texture2D" uid="uid://cw7ao6e50cpxy" path="res://assets/bot3.png" id="4_2e2ej"]
+[ext_resource type="PackedScene" uid="uid://cwu7volpwjt7j" path="res://TitleScreen/pause_menu.tscn" id="5_skoes"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bmv2"]
 shader = ExtResource("2_xvftn")
@@ -80,6 +81,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="PauseMenu" parent="." unique_id=904766380 instance=ExtResource("5_skoes")]
 
 [connection signal="pressed" from="MainBtnContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainBtnContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]

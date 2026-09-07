@@ -10,8 +10,8 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var dir_x := Input.get_axis("ui_left", "ui_right")
-	var dir_y := Input.get_axis("ui_up", "ui_down")
+	var dir_x := Input.get_axis("left", "right")
+	var dir_y := Input.get_axis("up", "down")
 	
 	#print(get_angle_to(get_local_mouse_position()))
 	look_at($"..".get_local_mouse_position())

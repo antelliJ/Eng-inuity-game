@@ -1,4 +1,5 @@
-extends minigame
+#extends minigame
+extends Node2D
 
 @export var connections : Array[connect_wire]
 
@@ -7,7 +8,7 @@ var timer_end :bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super()
+	#super()
 	
 	
 	for wire in connections:

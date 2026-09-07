@@ -1,4 +1,7 @@
-extends minigame
+#extends minigame
+extends Node2D
+
+@export var playtime: float = 5.0
 
 @onready var player_tongue_finger: CharacterBody2D = $PlayerTongueFinger
 
@@ -9,14 +12,14 @@ var game_ended : bool = false # ensure only send cmd once
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super()
+	#super()
 	
-	get_tree().paused = true
-	await get_tree().create_timer(0.2, true).timeout
-	get_tree().paused = false
+	#get_tree().paused = true
+	#await get_tree().create_timer(0.2, true).timeout
+	#get_tree().paused = false
 	
 	
-	await timer_scene.Timer(10.0)
+	await timer_scene.Timer(playtime)
 	timer_end = true
 
 

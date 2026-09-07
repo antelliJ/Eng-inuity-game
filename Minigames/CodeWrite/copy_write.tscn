@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cjt8ul00osyn0"]
+
+[ext_resource type="Script" uid="uid://gt13tj0ajlja" path="res://Minigames/CodeWrite/copy_write.gd" id="1_3rtl7"]
+[ext_resource type="Texture2D" uid="uid://dmyuqmm2q3b0n" path="res://assets/desk.png" id="2_nyij0"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="3_ntmpw"]
+[ext_resource type="Texture2D" uid="uid://trpwusiwkg6s" path="res://Minigames/CodeWrite/monitor.png" id="4_21n8a"]
+[ext_resource type="Material" uid="uid://23y4t8ng7yes" path="res://Minigames/CodeWrite/hue_shift_shader.tres" id="5_cadpk"]
+[ext_resource type="Texture2D" uid="uid://78fglswll2io" path="res://Minigames/CodeWrite/monitor-text1.png" id="6_vvtve"]
+[ext_resource type="Texture2D" uid="uid://cbwfuht0o7ixh" path="res://Minigames/CodeWrite/monitor-text2.png" id="7_kadb8"]
+[ext_resource type="PackedScene" uid="uid://ckhdqal2bcbos" path="res://Minigames/CodeWrite/copy_keyboard.tscn" id="8_f0i16"]
+[ext_resource type="Texture2D" uid="uid://u017wnx51ggg" path="res://assets/progressBarSoft.png" id="9_cb6qd"]
+
+[sub_resource type="Gradient" id="Gradient_3s2sl"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.16412213, 0.49618322, 0.7557252)
+colors = PackedColorArray(0.09285442, 0.8824652, 0, 1, 0.8227422, 0.73346096, 0.031990007, 1, 0.905224, 0, 0.016848072, 1)
+
+[node name="CopyWrite" type="Node2D" unique_id=925193877 node_paths=PackedStringArray("monitorTextArrays")]
+script = ExtResource("1_3rtl7")
+monitorTextArrays = [NodePath("Monitor/MonitorText1"), NodePath("Monitor/MonitorText2")]
+dangerColors = SubResource("Gradient_3s2sl")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1141545370]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_nyij0")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("3_ntmpw")]
+
+[node name="Monitor" type="Sprite2D" parent="." unique_id=1825330225]
+position = Vector2(572, 174)
+scale = Vector2(0.55446374, 0.55446374)
+texture = ExtResource("4_21n8a")
+
+[node name="MonitorText1" type="Sprite2D" parent="Monitor" unique_id=1203154718]
+material = ExtResource("5_cadpk")
+position = Vector2(23.446045, 9.017822)
+scale = Vector2(1.0195035, 1.0195035)
+texture = ExtResource("6_vvtve")
+
+[node name="MonitorText2" type="Sprite2D" parent="Monitor" unique_id=123369319]
+visible = false
+material = ExtResource("5_cadpk")
+position = Vector2(-1.8035889, 0)
+scale = Vector2(0.99320203, 0.99320203)
+texture = ExtResource("7_kadb8")
+
+[node name="CodeWriting" parent="." unique_id=1313640749 instance=ExtResource("8_f0i16")]
+position = Vector2(575, 469)
+scale = Vector2(0.457, 0.457)
+
+[node name="CodingLevelBar" type="TextureProgressBar" parent="." unique_id=645602919]
+texture_filter = 1
+offset_left = 1091.0
+offset_top = 155.5
+offset_right = 1141.0
+offset_bottom = 495.5
+value = 75.0
+allow_greater = true
+fill_mode = 3
+texture_progress = ExtResource("9_cb6qd")
+
+[node name="ColorRect" type="ColorRect" parent="CodingLevelBar" unique_id=556204262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.5
+offset_right = -2.0
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.755)
+pivot_offset = Vector2(24, 337)
+color = Color(0.99, 0, 0.21450004, 0.47843137)

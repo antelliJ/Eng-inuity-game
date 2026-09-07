@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dxnp1er5ljkf0"]
+
+[ext_resource type="PackedScene" uid="uid://i1jry7gn5mdj" path="res://Minigames/minigame_class.tscn" id="1_i7e7x"]
+[ext_resource type="PackedScene" uid="uid://3uocgxdqdxlh" path="res://Minigames/ClipParts/ClipParts.tscn" id="2_p2bcx"]
+[ext_resource type="Texture2D" uid="uid://c5imahocg5ukn" path="res://assets/keyset/cursor-select.png" id="2_p70kt"]
+[ext_resource type="Texture2D" uid="uid://ixs6t2eupyuo" path="res://assets/keyset/cursor-movement.png" id="3_40oan"]
+
+[node name="ClipPartsGame" unique_id=256276361 instance=ExtResource("1_i7e7x")]
+gameName = "Wire Connections"
+gameHeadline = "Connect the clips to the wires!"
+instructionImages = Array[Texture2D]([ExtResource("2_p70kt"), ExtResource("3_40oan")])
+
+[node name="ClipParts" parent="." index="2" unique_id=626452238 instance=ExtResource("2_p2bcx")]

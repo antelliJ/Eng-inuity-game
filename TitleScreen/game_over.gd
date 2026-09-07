@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 
 func handle_spook() -> void:
 	var spook_lvl: float = spookyLevel.sample(remap(spooky_timer.time_left, 10, 0, 0, 1))
-	print("its off the charts! ", spook_lvl)
+	#print("its off the charts! ", spook_lvl)
 	var scale: float = remap(spook_lvl, 0, 1, 0.25, 0.95)
 	spooky_sprite.scale = Vector2(scale, scale)
 	#var alpha:float =remap(spook_lvl, 0, 1, 0, 255)

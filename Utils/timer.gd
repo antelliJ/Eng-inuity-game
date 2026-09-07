@@ -31,4 +31,4 @@ func Timer(start_time :float):
 	return
 
 func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
+	await get_tree().create_timer(seconds, false).timeout

@@ -64,6 +64,7 @@ offset_right = 486.0
 offset_bottom = 300.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 17
+theme_override_constants/strikethrough_alpha = 100
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "You Did it You Won!
@@ -181,7 +182,7 @@ alignment = 1
 
 [node name="ReturnBtn" type="Button" parent="DeathSad/VBoxContainer" unique_id=1094281310]
 layout_mode = 2
-text = "Return to menu"
+text = "  Return to menu  "
 
 [node name="SpookyTimer" type="Timer" parent="." unique_id=706081572]
 wait_time = 10.0

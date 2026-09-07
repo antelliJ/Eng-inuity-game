@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dkosfvuas1yfy"]
+
+[ext_resource type="PackedScene" uid="uid://i1jry7gn5mdj" path="res://Minigames/minigame_class.tscn" id="1_da1x4"]
+[ext_resource type="Texture2D" uid="uid://ixs6t2eupyuo" path="res://assets/keyset/cursor-movement.png" id="2_2qa6l"]
+[ext_resource type="PackedScene" uid="uid://cb7te3q22sa8" path="res://Minigames/dont_touch_dangerous.tscn" id="2_76ieu"]
+[ext_resource type="Texture2D" uid="uid://csd1ph7gu0qcv" path="res://assets/keyset/instruction Keys.png" id="3_hwd70"]
+
+[node name="DodgeDangersGame" unique_id=256276361 instance=ExtResource("1_da1x4")]
+gameName = "Dodge Dangers"
+gameHeadline = "Don't lick the Dangers!"
+instructionImages = Array[Texture2D]([ExtResource("2_2qa6l"), ExtResource("3_hwd70")])
+
+[node name="DontTouchDangerous" parent="." index="2" unique_id=706383348 instance=ExtResource("2_76ieu")]

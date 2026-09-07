@@ -25,14 +25,30 @@ var currentMinigame : minigame
 var GameState : GameStates = GameStates.MENU
 var GameWon : GameWinStates = GameWinStates.UNKNOWN
 
+var gamePaused : bool = false
+#@onready var pause_menu: Control = $PauseMenu
+signal pauseGameSignal(open:bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	toggle_settings.connect(toggle_settings_view)
+	pauseGameSignal.connect(toggle_pause)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		toggle_pause(!gamePaused)
+	
+func toggle_pause(toOpen:bool)->void:
+	gamePaused = !gamePaused
+	#pause_menu.visible = gamePaused
+	get_tree().paused = gamePaused
+	#if gamePaused:
+		#pauseGameSignal.emit(true)
 
 func toggle_settings_view() -> void:
 	if !settings_open:
@@ -79,5 +95,12 @@ func next_minigame() -> void:
 		GameWon = GameWinStates.UNKNOWN
 		
 	else:
+		#TODO do a check if lives is 0 or something
 		#Go to end screen
 		Transition.playTransition("res://TitleScreen/game_over.tscn")
+
+
+func _on_continue_btn_pressed() -> void:
+	gamePaused = false
+	#pause_menu.visible = gamePaused
+	get_tree().paused = gamePaused 

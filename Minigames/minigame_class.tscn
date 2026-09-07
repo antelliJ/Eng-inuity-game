@@ -1,6 +1,133 @@
 [gd_scene format=3 uid="uid://i1jry7gn5mdj"]
 
 [ext_resource type="Script" uid="uid://dugyv8dogke2r" path="res://Minigames/minigame_class.gd" id="1_gklhg"]
+[ext_resource type="Theme" uid="uid://df5nyyjbqg04s" path="res://assets/GlobalTheme.tres" id="2_wj3gt"]
+[ext_resource type="Script" uid="uid://ca2sw1osbldqe" path="res://Utils/minigameInfoControl.gd" id="3_orus5"]
+
+[sub_resource type="Animation" id="Animation_wj3gt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_orus5"]
+resource_name = "scroll_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25881603, 0.25881603),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -650)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"headline_animation_ended"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dd7pp"]
+_data = {
+&"RESET": SubResource("Animation_wj3gt"),
+&"scroll_up": SubResource("Animation_orus5")
+}
 
 [node name="MinigameClass" type="Node2D" unique_id=256276361]
 script = ExtResource("1_gklhg")
+instructionImages = Array[Texture2D]([null])
+
+[node name="Control" type="Control" parent="." unique_id=986453683]
+process_mode = 2
+top_level = true
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1158.0
+offset_bottom = 646.0
+theme = ExtResource("2_wj3gt")
+script = ExtResource("3_orus5")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=460528678]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54621834, 0.73398453, 0.92112267, 1)
+
+[node name="ImageInstructionImagesContainer" type="HBoxContainer" parent="Control" unique_id=512119431]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -104.0
+offset_right = 460.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="InstructionHeaderLabel" type="Label" parent="Control" unique_id=1281117740]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 181.0
+grow_horizontal = 2
+pivot_offset = Vector2(605, 56)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 66
+text = "Connect those wires!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=999329859]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -102.0
+offset_right = 133.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 16.86
+
+[node name="Timer" type="Timer" parent="Control" unique_id=755268993]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2131676396]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_dd7pp")
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
