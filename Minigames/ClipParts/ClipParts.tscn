@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://ehuljbiqtjia" path="res://Minigames/ClipParts/wire.gd" id="3_q825c"]
 [ext_resource type="Script" uid="uid://bhe765p7ckls0" path="res://Minigames/ClipParts/connect_wire.gd" id="4_ghkwu"]
 [ext_resource type="Texture2D" uid="uid://da03a5k8pgycj" path="res://Minigames/ClipParts/aligator clips-covers.png" id="5_6jg1k"]
-[ext_resource type="Material" uid="uid://bqwytw2aufcsj" path="res://assets/Materials/electric_particles.tres" id="5_yuck8"]
 
 [sub_resource type="Curve2D" id="Curve2D_o0etv"]
 _data = {
@@ -68,11 +67,20 @@ script = ExtResource("4_ghkwu")
 my_col = NodePath("Area2D")
 desired_col = NodePath("../../WIRES/Wire1/Clip1/Snapper")
 
-[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectGND" unique_id=288556857]
-position = Vector2(1054, 238)
+[node name="Particles" type="CPUParticles2D" parent="CONNECTIONS/ConnectGND" unique_id=861332470]
+position = Vector2(1063, 238)
+rotation = -4.2611012
 amount = 67
-sub_emitter = NodePath(".")
-process_material = ExtResource("5_yuck8")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+gravity = Vector2(0, 20)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angular_velocity_min = 20.0
+angular_velocity_max = 35.4
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(0.11764706, 0.7490196, 1, 1)
 
 [node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectGND" unique_id=1210898361]
 curve = SubResource("Curve2D_o0etv")
@@ -94,11 +102,20 @@ script = ExtResource("4_ghkwu")
 my_col = NodePath("Area2D")
 desired_col = NodePath("../../WIRES/Wire2/Clip1/Snapper")
 
-[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectRED" unique_id=1195423408]
-position = Vector2(69, 306.56)
+[node name="Particles" type="CPUParticles2D" parent="CONNECTIONS/ConnectRED" unique_id=826031429]
+position = Vector2(77.669464, 306.89487)
+rotation = 2.022084
 amount = 67
-sub_emitter = NodePath(".")
-process_material = ExtResource("5_yuck8")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+gravity = Vector2(0, 20)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angular_velocity_min = 20.0
+angular_velocity_max = 35.4
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(0.11764706, 0.7490196, 1, 1)
 
 [node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectRED" unique_id=231692917]
 position = Vector2(-985, 68.56)
@@ -122,12 +139,20 @@ script = ExtResource("4_ghkwu")
 my_col = NodePath("Area2D")
 desired_col = NodePath("../../WIRES/Wire3/Clip1/Snapper")
 
-[node name="Particles" type="GPUParticles2D" parent="CONNECTIONS/ConnectYEL" unique_id=419109606]
-position = Vector2(76.86579, 661.90375)
-rotation = 1.2915436
+[node name="Particles" type="CPUParticles2D" parent="CONNECTIONS/ConnectYEL" unique_id=1661196162]
+position = Vector2(75.76541, 660.2338)
+rotation = 2.5202992
 amount = 67
-sub_emitter = NodePath(".")
-process_material = ExtResource("5_yuck8")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+gravity = Vector2(0, 20)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angular_velocity_min = 20.0
+angular_velocity_max = 35.4
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(0.11764706, 0.7490196, 1, 1)
 
 [node name="Path2D" type="Path2D" parent="CONNECTIONS/ConnectYEL" unique_id=616572036]
 position = Vector2(-985, 68.56)

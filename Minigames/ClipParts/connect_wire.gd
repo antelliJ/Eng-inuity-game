@@ -6,7 +6,7 @@ class_name connect_wire
 @export var desired_col: Area2D
 
 
-@onready var particles: GPUParticles2D = $Particles
+@onready var particles: CPUParticles2D = $Particles
 
 
 var connect_success :bool = false
