@@ -26,7 +26,6 @@ https://github.com/user-attachments/assets/0002292a-856b-4a9a-8b1c-67847f675bb8
 - Custom made assets
 - Custom particle/shader action
 - Made with Godot 4
-- Continued development likely
 
 
 ### How to play
@@ -63,7 +62,7 @@ read the instruction before the minigame, complete the objective, and continue t
 <img width="2561" height="1428" alt="Screenshot (489)" src="https://github.com/user-attachments/assets/28773b3f-e373-4797-b1d0-fb3ba901d26d" />
 
 
-### Behind the scenes
+### Behind the scenes / Credits
 
 Built with Godot 4.7, using my own assets (other than placeholders that might be hidden around the source!)
 
