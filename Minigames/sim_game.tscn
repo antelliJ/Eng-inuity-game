@@ -1,4 +1,28 @@
-[gd_scene format=3 uid="uid://c6goeto5yuhyu"]
+[gd_scene format=4 uid="uid://c6goeto5yuhyu"]
+
+[ext_resource type="Shader" uid="uid://dws03oswrctah" path="res://Utils/sinDisplace.gdshader" id="1_egpts"]
+[ext_resource type="Texture2D" uid="uid://w1usfu2q6wxr" path="res://Minigames/zoom/crappy car.png" id="2_b8ruh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3m8t"]
+shader = ExtResource("1_egpts")
+shader_parameter/amplitutde = Vector2(1, -0.145)
+shader_parameter/speed = Vector2(1, 0)
+shader_parameter/state = 2.630000124925
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ncbgi"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-281, -85.29999, 0, 527.1, 374.3, 0),
+"attribute_data": PackedByteArray("7+6OPpxXwz7v7o4+G+jEPrZgiz49Csc+tmCLPomIyD5fLIk+iYjIPknAhz6rqso+N6+GPquqyj7tMIU+HMfRPkREhD4cx9E+W7CFPpQ+GT9bsIU+ZKgcPxWNBD53dxc/A532PXd3Fz/yi+U9wRYcPwu24D3BFhw/C7bgPTfQIT9kqOw92IItPx6m7j3Ygi0/lD7pPTmOQz+UPuk9x3FEP6VP+j0Ltkg/pU/6PZqZST9yHAc+tmBLP3IcBz4/6Us/sAUbPjxMTT+wBRs+qctNP4MtWD6siU8/gy1YPhoJUD+QwoU+9UlPP5t4hj71SU8/chyHPpfbVz9yHIc+Om1YP5Q+iT420Fk/lD6JPrAFWz8GW5A+v3ldPwZbkD6beF4/1eWWPtiCXT+f9Jk+2IJdP1uwpT4REWE/W7ClPlHZYT/V5bY+ERFhP29evT4REWE/rkfRPt7dXT/KDtM+3t1dP7WB3j6JiFg/kYDfPomIWD+/WOI+VVVVPzmO4z5VVVU/OY7jPkGnTT/NzOw+m3hOP83M7D7v7k4/0icNP+mTTj+KZw0/6ZNOP+/uDj9YE08/7+4OP6uqUj8GWxA/uR5VPwZbED8YS1Y/chwXP5GAXz9yHBc/7FFgP6VPGj//IGM/pU8aP6KyYz8LtiA/xNRlPwu2ID9NXWY/iYgoP2zBZj/c/ig/bMFmPxAyLD9bsGU/imctP1uwZT//IDM/ERFhP4epMz8REWE/pHA1P83MXD/45jU/zcxcPx6mNj+UPlk/chw3P5Q+WT9yHDc/ejVRP2ELNj9ebk8/YQs2P6YuTz/pkz4/ryZOP+mTPj/e3U0/16NQP97dTT/rclM/tmBLP9sfVD+2YEs/Ad9UP33SRz9VVVU/fdJHP1VVVT9fLDE/PQpXP1D6JD+RgFc/UPokP3IcVz/E1B0/chxXP4FOGz85jlM/S34ZPzmOUz+O4xg/fPM6P4mIGD9vf0A/juMIP8P1QD+O4wg/2mFCP/VJ/z4Uz0I/9Un/PjMzQz+f9Ok+MzNDP65o5D4AAEA/RwLePgAAQD/Hcdw+xbMaP8dx3D4HOv0+juPYPtsf9D6O49g+xNTFPhzH0T7hesQ+HMfRPtInnT5hC8Y+0iedPrkexT4="),
+"format": 34393296913,
+"index_count": 312,
+"index_data": PackedByteArray("AABpAGgAZwBmAGUAZQBkAGMAYwBiAGEAYQBgAF8AXwBeAF0AXQBcAFsAWgBZAFgAWABXAFYAVgBVAFQAUwBSAFEAUQBQAE8ATwBOAE0ATQBMAEsASgBJAEgARwBGAEUARQBEAEMAQwBCAEEAQQBAAD8APwA+AD0APQA8ADsAOwA6ADkAOQA4ADcANwA2ADUAMwAyADEAMAAvAC4ALgAtACwALAArACoAKgApACgAKAAnACYAJAAjACIAIgAhACAAIAAfAB4AHAAbABoAGgAZABgAGAAXABYAFgAVABQAFAATABIAEQAQAA8ADwAOAA0ADQAMAAsACQAIAAcABwAGAAUABQAEAAMAAwACAAEAAQAAAGgAYwBhAF8AXwBdAFsAWgBYAFYAVgBUAFMAUwBRAE8ASgBIAEcARwBFAEMAQwBBAD8APwA9ADsAOwA5ADcANAAzADEAMAAuACwALAAqACgAKAAmACUAJQAkACIAIgAgAB4AHAAaABgAGAAWABQAFAASABEAEQAPAA0ADQALAAoACQAHAAUAAwABAGgAZQBjAF8AXwBbAFoAWgBWAFMAUwBPAE0ASgBHAEMAQwA/ADsAOwA3ADUANAAxADAAMAAsACgAJQAiAB4AHQAcABgAGAAUABEAEQANAAoACgAJAAUABQADAGgAZQBfAFoAWgBTAE0ASwBKAEMAQwA7ADUAMAAoACUAJQAeAB0AHQAYABEACgAFAGgAZwBlAFoAWgBNAEsASwBDADUAMAAlAB0AHQARAAoACgBoAGcAZwBaAEsASwA1ADQAMAAdAAoACgBnAEsASwA0ADAAMAAKAEsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 106,
+"vertex_data": PackedByteArray("AAAfw5iZqsIAAB/DNDOmwgAAJMM0M6DCAAAkwwAAnMKaGSfDAACcwpoZKcMAAJbCmpkqwwAAlsIzsyzDAACCwgAALsMAAILCAAAswwAAjkIAACzDNDOhQmZmhcMAAIRCZqaIwwAAhEJmpovDAACeQgCAjMMAAJ5CAICMwzQzvkJmZorDAAAAQ80MisMAAABDAACLwwAAPkMAAIvDAIBAQwAAiMMAgExDAACIwwAAT0MAgITDAABUQwCAhMMAgFVDAAB7w2hmWUMAAHvDzMxaQwAAUMM0s19DAABQw5gZYUNm5ivDAABfQ2bmKsMAAF9DAAAqw5gZd0MAACrDNLN4QwAAJ8OYmXxDAAAnwwAAgEMAAB3DNHODQwAAHcOa2YRDzcwTwwCAg0MAgA/DAICDQwAA/sIAgIhDAAD+wpqZiUOYmc3CAICIQ2hmu8IAgIhDaGaDwgAAhEPQzHzCAACEQ2hmPMIAAHlD0Mw2wgAAeUPQzCbCAABwQwAAIMIAAHBDAAAgwmhmWkMAANjBNLNcQwAA2MEAAF5DAAAUQgAAXUPQzBZCAABdQwAAKEJoZl5DAAAoQgCAaEMAADhCaGZvQwAAOEI0s3JDAACCQsxMhkMAAIJCNHOHQwAAlEJmZotDAACUQjQzjEMAALhCNDOPQwAAuEI0849DAADkQgCAkEOYmeZCAICQQ5iZ+EIAAI9DaGb/QgAAj0PMzA9DAICIQ8xMEUMAgIhDzEwWQwCAgkOamRdDAICCQzSzGUMAAHtDAAAbQwAAe0MAABtDaGZkQwAAGENoZl9DAAAYQzSzXkMAADBDzMxbQwAAMEMAAFtDzMxiQwAAW0M0s2pDAABUQ5iZbEMAAFRDNLNuQwAASkMAAHBDAABKQwAAcEPMTApDzMx0QwAA0EKYGXZDAADQQgAAdUPMzKdCAAB1Q5iZmUIAAGtDaGaPQgAAa0MAAIxCzMwlQwAAikJoZjVDAADIQTSzNkMAAMhBNLM6QwAAgL9o5jtDAACAvwAAPUMAAPjBAAA9QzAzG8IAADRDMDM/wgAANEMAAEjCNDOWQgAASMKAmXnAAABcwqCZhcEAAFzCmJmjwgAAgsJoZqfCAACCwgAAC8MAAKPCAAALw5iZpcI=")
+}]
 
 [node name="SimGame" type="Node2D" unique_id=1527848004]
 
@@ -7,3 +31,72 @@
 [node name="TextureRect" type="TextureRect" parent="WindScrolling" unique_id=1435541697]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=187080396]
+visible = false
+material = SubResource("ShaderMaterial_t3m8t")
+texture = ExtResource("2_b8ruh")
+
+[node name="Sprite2D3" type="MeshInstance2D" parent="." unique_id=498797338]
+visible = false
+mesh = SubResource("ArrayMesh_ncbgi")
+texture = ExtResource("2_b8ruh")
+
+[node name="SkelecarV1" type="Polygon2D" parent="." unique_id=100313460]
+texture = ExtResource("2_b8ruh")
+skeleton = NodePath("Skeleton2D")
+polygon = PackedVector2Array(201, 274.7, 201, 276.9, 196, 279.9, 196, 282, 192.9, 282, 190.9, 285, 189.4, 285, 187.3, 295, 186, 295, 188, 431, 188, 440.6, 93.2, 426, 86.7, 426, 80.7, 439, 79, 439, 79, 455.1, 83.2, 488, 83.9, 488, 82, 550, 82, 552.5, 88, 564.5, 88, 567, 95, 572, 95, 573.5, 109, 577.4, 109, 578.8, 152, 583.7, 152, 585.1, 188.1, 583, 189.1, 583, 190, 607.1, 190, 608.7, 193, 612.6, 193, 616, 203, 622.9, 203, 625.7, 212.2, 623, 216.5, 623, 233, 633, 233, 635.2, 257.2, 633, 266.3, 633, 294.3, 624, 296.8, 624, 312.9, 609, 314.3, 609, 318.3, 600, 320, 600, 320, 578.4, 333, 580.7, 333, 582, 397, 581, 397.7, 581, 402, 582.4, 402, 592.5, 406, 599.4, 406, 602.7, 425, 628.6, 425, 630.9, 434, 638.8, 434, 640.4, 452, 646.4, 452, 647.9, 474, 649, 475.3, 649, 484.3, 646, 487.7, 646, 503.8, 633, 505.3, 633, 510.3, 621, 511.6, 621, 513.7, 611, 515, 611, 515, 588.4, 512, 583.4, 512, 582.7, 536, 579.8, 536, 579, 586.8, 579, 594.7, 572, 596.6, 572, 598.7, 562, 600, 562, 600, 498.3, 604.8, 464, 606.1, 464, 605, 443.9, 605, 436.8, 595, 431.7, 595, 430, 525.8, 429, 541.4, 385, 542.7, 385, 546.7, 359, 547.9, 359, 549, 329, 549, 321.2, 540, 312.2, 540, 310, 435.1, 310, 356.1, 305, 343.3, 305, 278.2, 295, 276.3, 295, 221, 278.5, 221, 277.2)
+uv = PackedVector2Array(208.36812, 447.2224, 246.10638, 440.5396)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105)]
+bones = ["Front", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Front/Windshield", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1), "Front/Windshield/Top", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0), "Front/Windshield/Top/Back", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="SkelecarV1" unique_id=1900527241]
+position = Vector2(349, 439)
+
+[node name="Front" type="Bone2D" parent="SkelecarV1/Skeleton2D" unique_id=1948333998]
+position = Vector2(-256, 19)
+rest = Transform2D(1, 0, 0, 1, -257, 8)
+
+[node name="Windshield" type="Bone2D" parent="SkelecarV1/Skeleton2D/Front" unique_id=437416345]
+position = Vector2(545, -11)
+rest = Transform2D(1, 0, 0, 1, 119, -2)
+
+[node name="Top" type="Bone2D" parent="SkelecarV1/Skeleton2D/Front/Windshield" unique_id=1997612596]
+position = Vector2(167, -125)
+rest = Transform2D(1, 0, 0, 1, 167, -125)
+
+[node name="Back" type="Bone2D" parent="SkelecarV1/Skeleton2D/Front/Windshield/Top" unique_id=1647608159]
+position = Vector2(190, 117)
+rest = Transform2D(1, 0, 0, 1, 190, 117)
+
+[node name="SkeleCarv2" type="Polygon2D" parent="." unique_id=514228921]
+visible = false
+texture = ExtResource("2_b8ruh")
+skeleton = NodePath("Skeleton2D")
+polygon = PackedVector2Array(201, 274.7, 201, 276.9, 196, 279.9, 196, 282, 192.9, 282, 190.9, 285, 189.4, 285, 187.3, 295, 186, 295, 188, 431, 188, 440.6, 93.2, 426, 86.7, 426, 80.7, 439, 79, 439, 79, 455.1, 83.2, 488, 83.9, 488, 82, 550, 82, 552.5, 88, 564.5, 88, 567, 95, 572, 95, 573.5, 109, 577.4, 109, 578.8, 152, 583.7, 152, 585.1, 188.1, 583, 189.1, 583, 190, 607.1, 190, 608.7, 193, 612.6, 193, 616, 203, 622.9, 203, 625.7, 212.2, 623, 216.5, 623, 233, 633, 233, 635.2, 257.2, 633, 266.3, 633, 294.3, 624, 296.8, 624, 312.9, 609, 314.3, 609, 318.3, 600, 320, 600, 320, 578.4, 333, 580.7, 333, 582, 397, 581, 397.7, 581, 402, 582.4, 402, 592.5, 406, 599.4, 406, 602.7, 425, 628.6, 425, 630.9, 434, 638.8, 434, 640.4, 452, 646.4, 452, 647.9, 474, 649, 475.3, 649, 484.3, 646, 487.7, 646, 503.8, 633, 505.3, 633, 510.3, 621, 511.6, 621, 513.7, 611, 515, 611, 515, 588.4, 512, 583.4, 512, 582.7, 536, 579.8, 536, 579, 586.8, 579, 594.7, 572, 596.6, 572, 598.7, 562, 600, 562, 600, 498.3, 604.8, 464, 606.1, 464, 605, 443.9, 605, 436.8, 595, 431.7, 595, 430, 525.8, 429, 541.4, 385, 542.7, 385, 546.7, 359, 547.9, 359, 549, 329, 549, 321.2, 540, 312.2, 540, 310, 435.1, 310, 356.1, 305, 343.3, 305, 278.2, 295, 276.3, 295, 221, 278.5, 221, 277.2)
+uv = PackedVector2Array(208.36812, 447.2224, 246.10638, 440.5396)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105)]
+bones = ["Root", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Root/Front", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Root/Front/Front2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Root/Back", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Root/Windshield", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1), "Root/Windshield/Top", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0), "Root/Windshield/Top/Rearview", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="SkeleCarv2" unique_id=72917746]
+position = Vector2(373, 567)
+
+[node name="Root" type="Bone2D" parent="SkeleCarv2/Skeleton2D" unique_id=1390568899]
+
+[node name="Front" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root" unique_id=1386274898]
+position = Vector2(-273, -111)
+
+[node name="Front2" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root/Front" unique_id=314938197]
+position = Vector2(28, 126)
+
+[node name="Back" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root" unique_id=743697248]
+position = Vector2(225, -90)
+
+[node name="Windshield" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root" unique_id=1657852303]
+position = Vector2(-138, -203)
+
+[node name="Top" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root/Windshield" unique_id=224396341]
+position = Vector2(131, -45)
+
+[node name="Rearview" type="Bone2D" parent="SkeleCarv2/Skeleton2D/Root/Windshield/Top" unique_id=224578669]
+position = Vector2(168, 54)

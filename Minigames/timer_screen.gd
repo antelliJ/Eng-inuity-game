@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var life_container: HBoxContainer = $LifeContainer
 @onready var life_1: TextureRect = $LifeContainer/Life1

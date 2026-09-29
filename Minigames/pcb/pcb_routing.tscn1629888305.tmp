@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c6n6i2gfwuvl2"]
+
+[ext_resource type="Script" uid="uid://bua0fblkd0ffr" path="res://Minigames/pcb/pcb_game_board.gd" id="1_4nygj"]
+[ext_resource type="Script" uid="uid://cwghoayytvkb2" path="res://Minigames/pcb/grid.gd" id="1_flopn"]
+
+[node name="PCBRouting" type="Node2D" unique_id=158021951]
+
+[node name="Grid" type="Node2D" parent="." unique_id=899227222]
+script = ExtResource("1_flopn")
+
+[node name="GameBoard" type="Node2D" parent="." unique_id=381921169]
+script = ExtResource("1_4nygj")
+
+[node name="PathLine" type="Line2D" parent="GameBoard" unique_id=1504774839]
