@@ -46,22 +46,24 @@ read the instruction before the minigame, complete the objective, and continue t
 ### Minigames:
 - Wire matching
     - Connect the alligator clips to the corresponding wire by click and dragging. Once connected the wires stop sparking
-    - <img width="2534" height="1411" alt="Screenshot (488)" src="https://github.com/user-attachments/assets/e73bc135-cbba-4bae-af38-50f79c32f2b7" />
+    - <img width="2534" height="1411" alt="Wire matching image" src="https://github.com/user-attachments/assets/e73bc135-cbba-4bae-af38-50f79c32f2b7" />
 
 - Avoid fatality
     - Avoid swallowing bugs or osha-uncertified batteries. Dodge using movement keys and use the cursor to look away
-    - <img width="2531" height="1414" alt="Screenshot (486)" src="https://github.com/user-attachments/assets/32e5dc95-48cb-41a6-b29e-9df7320423cf" />
+    - <img width="2531" height="1414" alt="not safe for eating game" src="https://github.com/user-attachments/assets/32e5dc95-48cb-41a6-b29e-9df7320423cf" />
 
 - "write" code
     - Press the copy and paste buttons (in order) to maintain suitable code output, just pay attention to where the keys go!
-    - <img width="2527" height="1416" alt="Screenshot (485)" src="https://github.com/user-attachments/assets/e25443cb-8273-4b30-a90c-cd69ea2b7087" />
+    - <img width="2527" height="1416" alt="Professional stack overflow dev here" src="https://github.com/user-attachments/assets/e25443cb-8273-4b30-a90c-cd69ea2b7087" />
 
 - PCB Routing
     - Complete the PCB pads by connecting the two points within time!
+    - <img width="569" height="320" alt="hardware guy's dream game" src="https://github.com/user-attachments/assets/85bd0393-4179-4045-94eb-ddc7f3593824" />
+
     
 
 
-<img width="2561" height="1428" alt="Screenshot (489)" src="https://github.com/user-attachments/assets/28773b3f-e373-4797-b1d0-fb3ba901d26d" />
+<img width="1271" height="707" alt="No way someone actually won a couple times" src="https://github.com/user-attachments/assets/835631f7-2341-4a1c-93c1-86e9d018e801" />
 
 
 ### Behind the scenes / Credits
