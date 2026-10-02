@@ -21,3 +21,7 @@ func _on_continue_btn_pressed() -> void:
 
 func _on_audio_slider_value_changed(value: float) -> void:
 	AudioManager.AudioVol = value
+
+
+func _on_music_slider_value_changed(value: float) -> void:
+	AudioManager.MusicVol = value

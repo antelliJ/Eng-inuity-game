@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dp1ehaadduj0q" path="res://Minigames/pcb/meta editor pcb.png" id="1_34c7v"]
 [ext_resource type="Script" uid="uid://cwghoayytvkb2" path="res://Minigames/pcb/grid.gd" id="1_flopn"]
 [ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="1_sx34p"]
-[ext_resource type="Texture2D" uid="uid://baa1mihsdnpc8" path="res://Minigames/pcb/circuit board.png" id="2_t0vmq"]
 [ext_resource type="Script" uid="uid://u4s2ae7v0nvk" path="res://Minigames/pcb/flow_pair.gd" id="4_pp5sl"]
+[ext_resource type="Texture2D" uid="uid://b8nguc1c25ogg" path="res://Minigames/pcb/circuit board2.png" id="4_v111f"]
 [ext_resource type="Texture2D" uid="uid://sh1v6i4fgqy5" path="res://Minigames/pcb/trace-square.png" id="6_24mgt"]
 [ext_resource type="Resource" uid="uid://caykt0rbwikbm" path="res://Minigames/pcb/flowpair1.tres" id="9_v111f"]
 [ext_resource type="Resource" uid="uid://ccnak51byvwe" path="res://Minigames/pcb/flowpair2.tres" id="10_k6xg8"]
@@ -23,7 +23,7 @@ texture = ExtResource("1_34c7v")
 centered = false
 
 [node name="CIRCUIT BOARD" type="Sprite2D" parent="." unique_id=987454952]
-texture = ExtResource("2_t0vmq")
+texture = ExtResource("4_v111f")
 centered = false
 
 [node name="TraceSquare" type="Sprite2D" parent="." unique_id=469649249]

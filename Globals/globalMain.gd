@@ -3,7 +3,7 @@ extends Node
 #var mainState : Dictionary = {
 	#"score":	0
 #}
-const TOTAL_LIVES : int = 5
+const TOTAL_LIVES : int = 3
 var lives : int = TOTAL_LIVES
 var score : int = 0
 

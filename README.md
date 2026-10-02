@@ -19,11 +19,11 @@ https://github.com/user-attachments/assets/0002292a-856b-4a9a-8b1c-67847f675bb8
 
 ### Features
 
-- Fast paced engineering themed minigames
+- Fast paced engineering themed minigames, 3 lives
 - Keyboard and mouse controls
 - Playable in the browser
 - Unique gameplay mechanics in each minigame
-- Custom made assets
+- Custom made assets (Sounds are procedural)
 - Custom particle/shader action
 - Made with Godot 4
 
@@ -56,7 +56,9 @@ read the instruction before the minigame, complete the objective, and continue t
     - Press the copy and paste buttons (in order) to maintain suitable code output, just pay attention to where the keys go!
     - <img width="2527" height="1416" alt="Screenshot (485)" src="https://github.com/user-attachments/assets/e25443cb-8273-4b30-a90c-cd69ea2b7087" />
 
-- *more coming soon*
+- PCB Routing
+    - Complete the PCB pads by connecting the two points within time!
+    
 
 
 <img width="2561" height="1428" alt="Screenshot (489)" src="https://github.com/user-attachments/assets/28773b3f-e373-4797-b1d0-fb3ba901d26d" />
@@ -71,3 +73,6 @@ https://www.youtube.com/watch?v=kbDj9V2MZvw
 
 Godot shaders was also a great help:
 https://godotshaders.com/
+
+Music procedurally created with [Jarsick's Muser] (https://github.com/Jarsick/Muser) and edited with LMMS
+Sound effects procedurally generated with Bfxr and edited with audacity

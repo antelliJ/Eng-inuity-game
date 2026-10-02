@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://bkfqe78g8j5tj"]
 
 [ext_resource type="Script" uid="uid://cfvqiyl1q0hpl" path="res://Utils/audio_manager.gd" id="1_dedek"]
+[ext_resource type="AudioStream" uid="uid://bby74y6038lhg" path="res://assets/music/muserMain.ogg" id="2_iem86"]
 
 [node name="AudioManager" type="Node" unique_id=1658925612]
 script = ExtResource("1_dedek")
 
 [node name="BGPlayer" type="AudioStreamPlayer" parent="." unique_id=1461397688]
+process_mode = 3
+stream = ExtResource("2_iem86")
+volume_db = -26.282
+autoplay = true
+parameters/looping = true

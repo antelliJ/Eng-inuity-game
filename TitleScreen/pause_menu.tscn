@@ -60,5 +60,20 @@ layout_mode = 2
 min_value = -99.0
 max_value = 20.0
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2074443462]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2" unique_id=1703164563]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2" unique_id=732262919]
+layout_mode = 2
+min_value = -99.0
+max_value = 20.0
+
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="value_changed" from="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
