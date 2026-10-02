@@ -101,6 +101,7 @@ rotation = -2.5589788
 script = ExtResource("4_ghkwu")
 my_col = NodePath("Area2D")
 desired_col = NodePath("../../WIRES/Wire2/Clip1/Snapper")
+my_color = Color(0.78039217, 0, 0, 1)
 
 [node name="Particles" type="CPUParticles2D" parent="CONNECTIONS/ConnectRED" unique_id=826031429]
 position = Vector2(77.669464, 306.89487)
@@ -138,6 +139,7 @@ rotation = -2.5589788
 script = ExtResource("4_ghkwu")
 my_col = NodePath("Area2D")
 desired_col = NodePath("../../WIRES/Wire3/Clip1/Snapper")
+my_color = Color(0.85490197, 0.7882353, 0.019607844, 1)
 
 [node name="Particles" type="CPUParticles2D" parent="CONNECTIONS/ConnectYEL" unique_id=1661196162]
 position = Vector2(75.76541, 660.2338)

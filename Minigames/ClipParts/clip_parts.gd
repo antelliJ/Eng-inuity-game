@@ -11,6 +11,7 @@ const WIRECONNECTSOUND := "uid://bv1epvmwo3p8s"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#super()
+	randomize_clips_wires()
 	
 	
 	for wire in connections:
@@ -21,7 +22,25 @@ func _ready() -> void:
 	await timer_scene.Timer(5.0)
 	timer_end = true
 
-
+func randomize_clips_wires()->void:
+	var og_connections : Array[connect_wire] = connections
+	var og_wires : Array[clip_wire] = []
+	for wire_child in $WIRES.get_children():
+		if wire_child is clip_wire:
+			og_wires.append(wire_child)
+	
+	og_connections.shuffle()
+	print("OG CONNECTIONS ", og_connections)
+	og_wires.shuffle()
+	print("OG WIRES ", og_wires)
+	for i in range(og_wires.size()):
+		og_wires[i].wire_color = og_connections[i].my_color
+		og_connections[i].desired_col = og_wires[i].get_clip_area2d()
+		
+		og_wires[i].setup_colors()
+		og_connections[i].setup_colors()
+		
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

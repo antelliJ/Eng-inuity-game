@@ -22,17 +22,27 @@ func _ready() -> void:
 	clip_1.mouse_entered.connect(_on_clip_1_mouse_entered)
 	clip_1.mouse_exited.connect(_on_clip_1_mouse_exited)
 	
+	setup_colors()
+
+func setup_colors()->void:
 	line_1.default_color = wire_color
 	cover_sprite.self_modulate = wire_color
-
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if move_clip1:
-		clip_1.position = get_local_mouse_position()
+		var mousepos := get_local_mouse_position()
+		#var dir := (mousepos - clip_1.position).normalized()
+		#var rot := dir.angle()
+		#clip_1.look_at(mousepos)
+		clip_1.position = mousepos
 		path_1.curve.set_point_position(path_1.curve.point_count-1, clip_1.position)
+		
+		var point_before_pos: Vector2 = path_1.curve.get_point_position(path_1.curve.point_count-2)
+		var new_before_pos: Vector2 = point_before_pos.lerp(mousepos, 0.1) # Change 0.1 to adjust pull strength
+		path_1.curve.set_point_position(path_1.curve.point_count-2, new_before_pos)
+		
 		draw_line_from_curve(path_1, line_1)
 		
 func _input(event: InputEvent) -> void:
@@ -57,3 +67,6 @@ func _on_clip_1_mouse_entered() -> void:
 
 func _on_clip_1_mouse_exited() -> void:
 	mouse_in_clip1 = false
+
+func get_clip_area2d() -> Area2D:
+	return $Clip1

@@ -1,5 +1,7 @@
 extends Node
 
+const USE_SPATIAL_SOUND : bool = false
+
 @export var bgMusic:Array[AudioStream]
 #@onready var bg_player = $"bg player"
 @onready var bg_player: AudioStreamPlayer = $BGPlayer
@@ -33,13 +35,14 @@ func _ready():
 		p.finished.connect(_on_stream_finished.bind(p))
 		p.bus = bus
 	
-	#3d players
-	for i in num_players:
-		var p = AudioStreamPlayer3D.new()
-		add_child(p)
-		available3d.append(p)
-		p.finished.connect(_on_3d_stream_finished.bind(p))
-		p.bus = bus
+	if USE_SPATIAL_SOUND:
+		#3d players
+		for i in num_players:
+			var p = AudioStreamPlayer3D.new()
+			add_child(p)
+			available3d.append(p)
+			p.finished.connect(_on_3d_stream_finished.bind(p))
+			p.bus = bus
 
 
 func _on_stream_finished(stream):
@@ -65,6 +68,8 @@ func _process(delta):
 		available[0].play()
 		available.pop_front()
 	
+	if !USE_SPATIAL_SOUND:
+		return
 	if not queue3d.is_empty() and not available3d.is_empty():
 		available3d[0].stream = load(queue.pop_front())
 		available3d[0].volume_db = AudioVol

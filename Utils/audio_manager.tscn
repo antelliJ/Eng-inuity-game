@@ -5,6 +5,7 @@
 
 [node name="AudioManager" type="Node" unique_id=1658925612]
 script = ExtResource("1_dedek")
+bgMusic = Array[AudioStream]([ExtResource("2_iem86")])
 
 [node name="BGPlayer" type="AudioStreamPlayer" parent="." unique_id=1461397688]
 process_mode = 3
@@ -12,3 +13,5 @@ stream = ExtResource("2_iem86")
 volume_db = -26.282
 autoplay = true
 parameters/looping = true
+
+[connection signal="finished" from="BGPlayer" to="." method="_on_bg_player_finished"]
