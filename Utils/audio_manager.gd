@@ -50,10 +50,10 @@ func _on_3d_stream_finished(stream):
 	# When finished playing a stream, make the player available again.
 	available3d.append(stream)
 
-func play(sound_path):
+func play(sound_path :String):
 	queue.append(sound_path)
 
-func play3d(sound_path, pos):
+func play3d(sound_path :String, pos):
 	queue.append(sound_path)
 	queuepos.append(pos)
 

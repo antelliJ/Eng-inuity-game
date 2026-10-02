@@ -10,6 +10,7 @@ extends Control
 @onready var timer: RichTextLabel = $Timer
 
 var time : float
+const DEATHAUDIO := "uid://d0ek5a3mvhbk2"
 
 #ordered based on the way they should disappear
 @onready var lifeTextures:Array[TextureRect] = [
@@ -80,7 +81,7 @@ func hide_lives() -> void:
 	
 
 func play_life_byebye_anim(choice: TextureRect)->void:
-	
+	AudioManager.play(DEATHAUDIO)
 	hide_lives()
 	simulated_spacing.show()
 	life_container.queue_sort()

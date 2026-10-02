@@ -16,6 +16,9 @@ extends Control
 const BeatSampleMsg : String = "You beat _ Minigames! Nice :D"
 const BeatSampleMsgAngry: String = "You only beat _ Minigames... Return for more"
 # Called when the node enters the scene tree for the first time.
+
+const WEIRDAUDIO := "uid://d1rhjrlmptysh"
+
 func _ready() -> void:
 	if is_winner():
 		winnerNode.show()
@@ -30,6 +33,7 @@ func _ready() -> void:
 		loserNode.show()
 		winnerNode.hide()
 		spooky_timer.start()
+		AudioManager.play(WEIRDAUDIO)
 		var color : Color = Color("001f08")
 		#background.material.set_shader_parameter("bg", color)
 		bg_color.color = color

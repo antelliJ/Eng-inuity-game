@@ -7,6 +7,8 @@ var paste_ready : bool = false
 var x_scale :float = 1.0
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 const DEFAULT_PATCH_SIZE := Vector2(1056.0, 646.0)
+const BLIP_AUDIO := "uid://di2cxowmax22c"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nine_patch_rect.grow_horizontal = Control.GROW_DIRECTION_BOTH
@@ -27,6 +29,7 @@ func _on_paste_btn_pressed() -> void:
 	if paste_ready:
 		paste_ready = false
 		successfulCopy.emit()
+		AudioManager.play(BLIP_AUDIO)
 
 func get_x_scale() -> float:
 	#return nine_patch_rect.size.x

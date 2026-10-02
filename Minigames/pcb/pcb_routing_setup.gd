@@ -3,6 +3,7 @@ extends Node2D
 @onready var timer_scene: TimerThing = $TimerScene
 var timer_end :bool = false
 var game_running : bool = true # ensure only send cmd once
+@onready var game_board: Node2D = $GameBoard
 
 @export var playtime: float = 4.0
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if timer_end and game_running: #Game over :O
+	if timer_end and game_running and game_board.game_runningv2: #Game over :O
 		game_running = false
 		#Global.minigames_done -= 1 # stay on this minigame
 		#Global.lives -= 1

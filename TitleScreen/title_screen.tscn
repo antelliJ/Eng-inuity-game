@@ -83,6 +83,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PauseMenu" parent="." unique_id=904766380 instance=ExtResource("5_skoes")]
+visible = false
 
 [connection signal="pressed" from="MainBtnContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainBtnContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]

@@ -28,6 +28,10 @@ var game_runningv2: bool = true
 
 #@onready var path_line: Line2D = $PathLine
 
+const MOVEAUDIO := "uid://di2cxowmax22c"
+const SUCCESSAUDIO := "uid://dknk3ftpg0qce"
+
+
 func _ready() -> void:
 	#Hacky way to choose one ig but oh well
 	pairs.append(all_pairs.pick_random())
@@ -132,6 +136,7 @@ func _finish_drawing() -> void:
 	update_visual_line(i, Vector2.INF) # remove tail
 	if _all_complete() and game_runningv2:
 		game_runningv2 = false
+		AudioManager.play(SUCCESSAUDIO)
 		Global.minigame_won()
 
 func extend_path_toward(mouse_pos: Vector2) -> void:
@@ -152,6 +157,7 @@ func extend_path_toward(mouse_pos: Vector2) -> void:
 		for step in _candidate_steps(offset):
 			if _apply_step(path, last_cell + step, target):
 				moved = true
+				AudioManager.play(MOVEAUDIO)
 				break
 		if not moved:
 			return

@@ -6,6 +6,7 @@ extends Node2D
 @onready var timer_scene: TimerThing = $TimerScene
 var timer_end :bool = false
 var game_running : bool = true
+const WIRECONNECTSOUND := "uid://bv1epvmwo3p8s"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,6 +47,7 @@ func draw_line_from_curve(path : Path2D, line: Line2D) -> void:
 func _on_wire_connected() -> void:
 	#check if every cable is connected, if so can end round
 	var can_continue : bool = true
+	AudioManager.play(WIRECONNECTSOUND)
 	for wire in connections:
 		if (!wire.connect_success):
 			can_continue = false

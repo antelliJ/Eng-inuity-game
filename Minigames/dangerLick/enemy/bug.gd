@@ -8,6 +8,8 @@ extends RigidBody2D
 
 var attackWaitTime:float = 1.0
 
+const BUGJUMPAUDIO := "uid://dj8ie1besjt1t"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("bug ready called")
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	#ATTACK
 	Attack()
+	AudioManager.play(BUGJUMPAUDIO)
 	
 	attack_timer.start()
 	

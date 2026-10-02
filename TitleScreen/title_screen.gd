@@ -32,4 +32,7 @@ func _on_quit_btn_pressed() -> void:
 
 
 func _on_settings_btn_pressed() -> void:
-	Global.toggle_settings.emit()
+	#Global.toggle_settings.emit()
+	#Global.toggle_pause(!Global.gamePaused)
+	$PauseMenu.visible = !$PauseMenu.visible
+	Global.toggle_pause(true)

@@ -5,6 +5,9 @@ extends Node2D
 
 @onready var player_tongue_finger: CharacterBody2D = $PlayerTongueFinger
 
+const BIGHITAUDIO := "uid://shkljevojbev"
+
+
 
 @onready var timer_scene: TimerThing = $TimerScene
 var timer_end :bool = false
@@ -43,6 +46,7 @@ func _on_bug_body_entered(body: Node) -> void:
 
 func game_lost()->void:
 	if !game_ended:
+		AudioManager.play(BIGHITAUDIO)
 		game_ended = true
 		Global.minigame_lost()
 
