@@ -1,19 +1,62 @@
 [gd_scene format=3 uid="uid://c6n6i2gfwuvl2"]
 
+[ext_resource type="Script" uid="uid://dr8u82o1ebffx" path="res://Minigames/pcb/pcb_routing_setup.gd" id="1_4kv40"]
 [ext_resource type="Script" uid="uid://bua0fblkd0ffr" path="res://Minigames/pcb/pcb_game_board.gd" id="1_4nygj"]
+[ext_resource type="Texture2D" uid="uid://dp1ehaadduj0q" path="res://Minigames/pcb/meta editor pcb.png" id="1_34c7v"]
 [ext_resource type="Script" uid="uid://cwghoayytvkb2" path="res://Minigames/pcb/grid.gd" id="1_flopn"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="1_sx34p"]
+[ext_resource type="Texture2D" uid="uid://baa1mihsdnpc8" path="res://Minigames/pcb/circuit board.png" id="2_t0vmq"]
+[ext_resource type="Script" uid="uid://u4s2ae7v0nvk" path="res://Minigames/pcb/flow_pair.gd" id="4_pp5sl"]
+[ext_resource type="Texture2D" uid="uid://sh1v6i4fgqy5" path="res://Minigames/pcb/trace-square.png" id="6_24mgt"]
+[ext_resource type="Resource" uid="uid://caykt0rbwikbm" path="res://Minigames/pcb/flowpair1.tres" id="9_v111f"]
+[ext_resource type="Resource" uid="uid://ccnak51byvwe" path="res://Minigames/pcb/flowpair2.tres" id="10_k6xg8"]
+[ext_resource type="Resource" uid="uid://cxmv6w43emc0w" path="res://Minigames/pcb/flowpair3.tres" id="11_4fki7"]
 
 [node name="PCBRouting" type="Node2D" unique_id=158021951]
+script = ExtResource("1_4kv40")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("1_sx34p")]
+z_index = 2
+
+[node name="MetaEditor" type="Sprite2D" parent="." unique_id=872890868]
+texture = ExtResource("1_34c7v")
+centered = false
+
+[node name="CIRCUIT BOARD" type="Sprite2D" parent="." unique_id=987454952]
+texture = ExtResource("2_t0vmq")
+centered = false
+
+[node name="TraceSquare" type="Sprite2D" parent="." unique_id=469649249]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(309, 153)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_24mgt")
+
+[node name="TraceSquare2" type="Sprite2D" parent="." unique_id=716952347]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(819, 273)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_24mgt")
 
 [node name="Grid" type="Node2D" parent="." unique_id=899227222]
+position = Vector2(277, 124)
 script = ExtResource("1_flopn")
+grid_width = 10
+grid_height = 7
 
-[node name="GameBoard" type="Node2D" parent="." unique_id=381921169]
+[node name="GameBoard" type="Node2D" parent="." unique_id=381921169 node_paths=PackedStringArray("board_sprite")]
+position = Vector2(277, 124)
 script = ExtResource("1_4nygj")
-grid_width = 16
-grid_height = 9
+grid_width = 10
+grid_height = 7
+all_pairs = Array[ExtResource("4_pp5sl")]([ExtResource("9_v111f"), ExtResource("10_k6xg8"), ExtResource("11_4fki7")])
+board_sprite = NodePath("../CIRCUIT BOARD")
+debug_draw = false
 
 [node name="PathLine" type="Line2D" parent="GameBoard" unique_id=1504774839]
+visible = false
 
 [node name="StartingPoints" type="Node2D" parent="GameBoard" unique_id=2065908632]
 

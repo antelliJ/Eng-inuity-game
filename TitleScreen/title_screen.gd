@@ -24,7 +24,8 @@ func _on_start_btn_pressed() -> void:
 	#get_tree().change_scene_to_file("res://level_scene.tscn")
 	
 	Global.shuffle_minigames()
-	Global.next_minigame()
+	#Global.next_minigame()
+	Global.start_minigames()
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().quit()

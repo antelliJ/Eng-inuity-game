@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var timer_scene: TimerThing = $TimerScene
 var timer_end :bool = false
+var game_running : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,9 +28,10 @@ func _process(delta: float) -> void:
 	
 	
 	
-	if timer_end: #Game over :O
-		Global.minigames_done -= 1 # stay on this minigame
-		Global.lives -= 1
+	if timer_end and game_running: #Game over :O
+		game_running = false
+		#Global.minigames_done -= 1 # stay on this minigame
+		#Global.lives -= 1
 		# TODO TEMP
 		#Transition.playTransition("res://TitleScreen/game_over.tscn")
 		Global.minigame_lost()
@@ -47,8 +49,9 @@ func _on_wire_connected() -> void:
 	for wire in connections:
 		if (!wire.connect_success):
 			can_continue = false
-	if can_continue:
+	if can_continue and game_running:
 		print("YOU DID IT! you win", can_continue)
+		game_running = false
 		#TODO IS TEMP
 		#Transition.playTransition("res://TitleScreen/game_over.tscn")
 		Global.minigame_won()

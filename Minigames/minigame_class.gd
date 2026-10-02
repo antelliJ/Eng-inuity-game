@@ -29,7 +29,7 @@ func _ready() -> void:
 		#image_instruction_images_container.add_spacer()
 	
 	#await get_tree().create_timer(instructionReadTime).timeout
-	timer.wait_time = instructionReadTime
+	timer.wait_time = (instructionReadTime / Global.game_speed_mult)
 	timer.start()
 	
 

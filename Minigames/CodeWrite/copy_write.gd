@@ -20,12 +20,17 @@ var tweenAlive : bool = false
 var game_running :bool = true
 var timer_end : bool = false
 
+var game_time_start_point : float = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	keyboardDude.successfulCopy.connect(copiedCode)
+	reducingRate *= Global.game_speed_mult
 	
 	await timer_scene.Timer(5.0)
 	timer_end = true
+	
+	game_time_start_point = Time.get_ticks_msec()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,11 +50,11 @@ func _process(delta: float) -> void:
 	if (codeLevel < 0) and game_running:
 		print("game lost")
 		game_running = false
-		Global.minigames_done -= 1 # stay on this minigame
-		Global.lives -= 1
+		#Global.minigames_done -= 1 # stay on this minigame
+		#Global.lives -= 1
 		Global.minigame_lost()
 	
-	var time_elapsed : float = Time.get_ticks_msec()
+	var time_elapsed : float = Time.get_ticks_msec() - game_time_start_point
 	var funny_x_scale:float = (sin(time_elapsed/500) * .4)+1
 	funny_x_scale = lerp(keyboardDude.get_x_scale(), funny_x_scale, delta*50)
 	keyboardDude.expand_board(funny_x_scale)

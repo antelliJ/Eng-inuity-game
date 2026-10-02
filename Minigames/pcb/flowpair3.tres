@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FlowPair" format=3 uid="uid://cxmv6w43emc0w"]
+
+[ext_resource type="Script" uid="uid://u4s2ae7v0nvk" path="res://Minigames/pcb/flow_pair.gd" id="1_ob8ij"]
+
+[resource]
+script = ExtResource("1_ob8ij")
+color = Color(0.05490196, 0.5411765, 0.08627451, 1)
+start = Vector2i(0, 6)
+end = Vector2i(3, 6)
+metadata/_custom_type_script = "uid://u4s2ae7v0nvk"

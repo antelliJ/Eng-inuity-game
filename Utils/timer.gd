@@ -25,7 +25,7 @@ func Timer(start_time :float):
 	
 	while time > 0.00:
 		await wait(0.10)
-		time -= 0.10
+		time -= (0.10 * Global.game_speed_mult)
 		
 	# when the timer reaches 0
 	return

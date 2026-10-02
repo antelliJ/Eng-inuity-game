@@ -11,6 +11,10 @@ extends Control
 @onready var bg_color: ColorRect = $"BG-Color2"
 @onready var bg_shader: TextureRect = $Background
 
+@onready var beat_blank_msg: RichTextLabel = $Winner/BeatBlankMsg
+@onready var beat_blank_msg_2: RichTextLabel = $DeathSad/BeatBlankMsg2
+const BeatSampleMsg : String = "You beat _ Minigames! Nice :D"
+const BeatSampleMsgAngry: String = "You only beat _ Minigames... Return for more"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_winner():
@@ -20,6 +24,8 @@ func _ready() -> void:
 		#background.material.set_shader_parameter("bg", color)
 		bg_color.color = color
 		
+		beat_blank_msg.text = BeatSampleMsg.replace("_", str(Global.minigames_done))
+		
 	else:
 		loserNode.show()
 		winnerNode.hide()
@@ -27,6 +33,8 @@ func _ready() -> void:
 		var color : Color = Color("001f08")
 		#background.material.set_shader_parameter("bg", color)
 		bg_color.color = color
+		
+		beat_blank_msg_2.text = BeatSampleMsgAngry.replace("_", str(Global.minigames_done))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,3 +62,8 @@ func is_winner() -> bool:
 func _on_return_btn_pressed() -> void:
 	Global.reset_game()
 	Transition.playTransition("res://TitleScreen/title_screen.tscn")
+
+
+func _on_continue_btn_pressed() -> void:
+	#Global.reset_game()
+	Global.continue_game()

@@ -5,7 +5,6 @@
 
 [node name="PauseMenu" type="Control" unique_id=904766380]
 process_mode = 3
-visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
@@ -47,4 +46,19 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Continue"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1696365155]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" unique_id=1745745912]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="AudioSlider" type="HSlider" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" unique_id=841262923]
+layout_mode = 2
+min_value = -99.0
+max_value = 20.0
+
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="value_changed" from="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/AudioSlider" to="." method="_on_audio_slider_value_changed"]

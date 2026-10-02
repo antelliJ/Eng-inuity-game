@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dobvemb2p8vm5"]
+
+[ext_resource type="PackedScene" uid="uid://i1jry7gn5mdj" path="res://Minigames/minigame_class.tscn" id="1_n33hm"]
+[ext_resource type="Texture2D" uid="uid://ixs6t2eupyuo" path="res://assets/keyset/cursor-movement.png" id="2_64r1s"]
+[ext_resource type="Texture2D" uid="uid://c5imahocg5ukn" path="res://assets/keyset/cursor-select.png" id="3_v4tjg"]
+[ext_resource type="PackedScene" uid="uid://c6n6i2gfwuvl2" path="res://Minigames/pcb/pcb_routing.tscn" id="4_4cb8d"]
+
+[node name="PcbRouteGame" unique_id=256276361 instance=ExtResource("1_n33hm")]
+gameName = "PCB Routing"
+gameHeadline = "Connect the PCB pads!"
+instructionImages = Array[Texture2D]([ExtResource("2_64r1s"), ExtResource("3_v4tjg")])
+
+[node name="PCBRouting" parent="." index="2" unique_id=158021951 instance=ExtResource("4_4cb8d")]

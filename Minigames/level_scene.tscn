@@ -3,6 +3,104 @@
 [ext_resource type="Script" uid="uid://doeav5y84chlp" path="res://Minigames/timer_screen.gd" id="1_xj23d"]
 [ext_resource type="Texture2D" uid="uid://ky4hpseaypvh" path="res://assets/bluss-full.png" id="2_xj23d"]
 [ext_resource type="Texture2D" uid="uid://bldvpws10lre8" path="res://assets/calipers.png" id="3_v7br4"]
+[ext_resource type="Shader" uid="uid://drks45oao55ec" path="res://Utils/Transition.gdshader" id="4_v7br4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t3m8t"]
+width = 128
+height = 128
+normalize = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xj23d"]
+shader = ExtResource("4_v7br4")
+shader_parameter/playing = 0.0
+shader_parameter/aspect = Vector2(1, 1.777777)
+shader_parameter/numOfTiles = Vector2(16, 9)
+shader_parameter/reverse = true
+shader_parameter/pixelsPerTile = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_xj23d"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LifeForAnim:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LifeForAnim:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LifeForAnim:material:shader_parameter/playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v7br4"]
+resource_name = "lifeLost"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LifeForAnim:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333334, 0.33333334, 0.7),
+"transitions": PackedFloat32Array(0.17075495, 0.61557233, 0.13397172),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.55, 0.55), Vector2(2.06, 2.06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LifeForAnim:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LifeForAnim:material:shader_parameter/playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oglvi"]
+_data = {
+&"RESET": SubResource("Animation_xj23d"),
+&"lifeLost": SubResource("Animation_v7br4")
+}
 
 [node name="LevelScene" type="Control" unique_id=1905067940]
 layout_mode = 3
@@ -29,6 +127,7 @@ offset_top = 147.0
 offset_right = 328.0
 offset_bottom = 275.0
 grow_horizontal = 2
+alignment = 1
 
 [node name="Life1" type="TextureRect" parent="LifeContainer" unique_id=822068021]
 layout_mode = 2
@@ -52,6 +151,23 @@ expand_mode = 2
 
 [node name="Life5" type="TextureRect" parent="LifeContainer" unique_id=1154242396]
 layout_mode = 2
+texture = ExtResource("3_v7br4")
+expand_mode = 2
+
+[node name="Simulated" type="TextureRect" parent="LifeContainer" unique_id=1470220139]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_t3m8t")
+
+[node name="LifeForAnim" type="TextureRect" parent="." unique_id=359420615]
+material = SubResource("ShaderMaterial_xj23d")
+layout_mode = 0
+offset_left = 776.0
+offset_top = 147.0
+offset_right = 904.0
+offset_bottom = 275.0
+pivot_offset = Vector2(64.65686, 70.3125)
 texture = ExtResource("3_v7br4")
 expand_mode = 2
 
@@ -88,3 +204,6 @@ grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 42
 text = "0.0"
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1778483081]
+libraries/ = SubResource("AnimationLibrary_oglvi")

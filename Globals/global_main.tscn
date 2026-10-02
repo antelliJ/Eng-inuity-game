@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dkosfvuas1yfy" path="res://Minigames/GAMELIST/DodgeDangersGame.tscn" id="4_e3ayd"]
 [ext_resource type="PackedScene" uid="uid://cd8env5qppqkn" path="res://Minigames/GAMELIST/CopyGame.tscn" id="5_e3ayd"]
 [ext_resource type="Script" uid="uid://dn6lc4h0wp8hs" path="res://Minigames/minigameHolder.gd" id="5_sa3m8"]
+[ext_resource type="PackedScene" uid="uid://dobvemb2p8vm5" path="res://Minigames/GAMELIST/pcb_route_game.tscn" id="6_sa3m8"]
+[ext_resource type="PackedScene" uid="uid://dfkajnloblwqj" path="res://Minigames/level_scene.tscn" id="8_nxkk1"]
 
 [sub_resource type="Resource" id="Resource_knnc8"]
 script = ExtResource("5_sa3m8")
-minigames = Array[PackedScene]([ExtResource("3_t6aev"), ExtResource("4_e3ayd"), ExtResource("5_e3ayd")])
+minigames = Array[PackedScene]([ExtResource("3_t6aev"), ExtResource("4_e3ayd"), ExtResource("5_e3ayd"), ExtResource("6_sa3m8")])
 metadata/_custom_type_script = "uid://dn6lc4h0wp8hs"
 
 [node name="GlobalMain" type="Node" unique_id=1218474025]
@@ -17,3 +19,4 @@ process_mode = 3
 script = ExtResource("1_d5otk")
 settings_scene = ExtResource("2_knnc8")
 MinigamesList = SubResource("Resource_knnc8")
+livesDisplayScene = ExtResource("8_nxkk1")

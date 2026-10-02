@@ -17,3 +17,7 @@ func togglePauseVisible(open:bool)->void:
 
 func _on_continue_btn_pressed() -> void:
 	Global.pauseGameSignal.emit(false)
+
+
+func _on_audio_slider_value_changed(value: float) -> void:
+	AudioManager.AudioVol = value

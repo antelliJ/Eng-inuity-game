@@ -3,7 +3,8 @@ extends Node
 #var mainState : Dictionary = {
 	#"score":	0
 #}
-var lives : int = 5
+const TOTAL_LIVES : int = 5
+var lives : int = TOTAL_LIVES
 var score : int = 0
 
 var minigames_done : int = 0
@@ -28,6 +29,14 @@ var GameWon : GameWinStates = GameWinStates.UNKNOWN
 var gamePaused : bool = false
 #@onready var pause_menu: Control = $PauseMenu
 signal pauseGameSignal(open:bool)
+
+@export var livesDisplayScene : PackedScene
+
+var changing_minigame_scene : bool = false
+
+@export var max_speed_mult := 3.0
+@export var speedmult_ramp := 0.3
+var game_speed_mult : float = 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,12 +73,23 @@ func toggle_settings_view() -> void:
 		settings_open = false
 
 func reset_game() -> void:
-	lives = 5
+	lives = TOTAL_LIVES
 	score = 0
 	minigames_done = 0
 	minigameIndex = 0
 	GameState = GameStates.MENU
 	GameWon = GameWinStates.UNKNOWN
+	game_speed_mult = 1.0
+
+func continue_game() -> void:
+	minigameIndex = 0
+	GameWon = Global.GameWinStates.UNKNOWN
+	#Global.game_speed_mult += .5
+	
+	game_speed_mult = lerpf(game_speed_mult, max_speed_mult, speedmult_ramp)
+	
+	shuffle_minigames()
+	start_minigames()
 
 func shuffle_minigames() -> void:
 	if !do_minigame_shuffle:
@@ -78,26 +98,53 @@ func shuffle_minigames() -> void:
 	#pass
 
 func minigame_won() -> void:
-	next_minigame()
-	GameWon = GameWinStates.WON
+	if !changing_minigame_scene:
+		next_minigame()
+		GameWon = GameWinStates.WON
+		minigames_done += 1
 func minigame_lost() -> void:
-	GameWon = GameWinStates.LOST
-	next_minigame()
+	if !changing_minigame_scene:
+		GameWon = GameWinStates.LOST
+		lives -= 1
+		print("GLOBAL: CURRENT LIVES ", lives)
+		Transition.playTransition(livesDisplayScene.resource_path)
+	#next_minigame()
+
+func start_minigames() -> void:
+	changing_minigame_scene = false
+	var minigame_scene_file : String = MinigamesList.minigames[minigameIndex].resource_path
+	Transition.playTransition(minigame_scene_file)
+	GameWon = GameWinStates.UNKNOWN
 
 func next_minigame() -> void:
 	# should play some infomatic / animation about the upcoming level?
-	print("MINIGAME INDEX ", minigameIndex)
+	print("GLOBAL: MINIGAME INDEX ", minigameIndex)
+	changing_minigame_scene = false
 	if (minigameIndex < MinigamesList.minigames.size()) and (GameWon != GameWinStates.LOST):
 		# open next minigame
+		print("GLOBAL: OPENING NEXT MINIGAME (+1 from previous val)")
+		minigameIndex += 1
+		if (minigameIndex >= MinigamesList.minigames.size()):
+			Transition.playTransition("res://TitleScreen/game_over.tscn")
+			return
 		var minigame_scene_file : String = MinigamesList.minigames[minigameIndex].resource_path
 		Transition.playTransition(minigame_scene_file)
-		minigameIndex += 1
 		GameWon = GameWinStates.UNKNOWN
 		
 	else:
 		#TODO do a check if lives is 0 or something
-		#Go to end screen
-		Transition.playTransition("res://TitleScreen/game_over.tscn")
+		# I don't think the minigame branch is accessible here,
+		# only on the above if branch 
+		if lives <= 0 or (minigameIndex >= MinigamesList.minigames.size()):
+			#Go to end screen
+			Transition.playTransition("res://TitleScreen/game_over.tscn")
+		else:
+			print("GLOBAL: REPLAY MINIGAME")
+			# replay the minigame
+			var minigame_scene_file : String = MinigamesList.minigames[minigameIndex].resource_path
+			Transition.playTransition(minigame_scene_file)
+			GameWon = GameWinStates.UNKNOWN
+			
 
 
 func _on_continue_btn_pressed() -> void:

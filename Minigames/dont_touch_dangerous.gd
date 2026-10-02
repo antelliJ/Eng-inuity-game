@@ -26,13 +26,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if timer_end: #you survived! :O
-		Global.minigames_done -= 1 # stay on this minigame
-		Global.lives -= 1
+		#Global.minigames_done -= 1 # stay on this minigame
+		#Global.lives -= 1
 		# TODO TEMP
 		#Transition.playTransition("res://TitleScreen/game_over.tscn")
 		if !game_ended:
-			Global.next_minigame()
+			#Global.next_minigame()
 			game_ended = true
+			Global.minigame_won()
 
 
 func _on_bug_body_entered(body: Node) -> void:
@@ -42,8 +43,8 @@ func _on_bug_body_entered(body: Node) -> void:
 
 func game_lost()->void:
 	if !game_ended:
-		Global.minigame_lost()
 		game_ended = true
+		Global.minigame_lost()
 
 func nodeIsPlayer(body: Node) -> bool:
 	if body.has_method("isPlayer"):
