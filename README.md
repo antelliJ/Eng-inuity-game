@@ -59,6 +59,9 @@ read the instruction before the minigame, complete the objective, and continue t
 - PCB Routing
     - Complete the PCB pads by connecting the two points within time!
     - <img width="569" height="320" alt="hardware guy's dream game" src="https://github.com/user-attachments/assets/85bd0393-4179-4045-94eb-ddc7f3593824" />
+- Machine Learning Trainer
+    - Sort the objects correctly to train the AI
+    - <img width="572" height="325" alt="Screenshot 2026-10-03 181827" src="https://github.com/user-attachments/assets/5e9e79fd-6639-40a6-8dfb-a9b94f82cd12" />
 
     
 
