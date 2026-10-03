@@ -78,3 +78,6 @@ https://godotshaders.com/
 
 Music procedurally created with [Jarsick's Muser] (https://github.com/Jarsick/Muser) and edited with LMMS
 Sound effects procedurally generated with Bfxr and edited with audacity
+
+#### AI usage
+- troubleshooted obstacle detection for the pcb minigame
