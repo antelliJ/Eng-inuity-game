@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://neyxvfc73kmw"]
+
+[ext_resource type="PackedScene" uid="uid://i1jry7gn5mdj" path="res://Minigames/minigame_class.tscn" id="1_nmox5"]
+[ext_resource type="PackedScene" uid="uid://mxl4nkkiom78" path="res://Minigames/TrainSort/train_ai_sort.tscn" id="2_7n81g"]
+[ext_resource type="Texture2D" uid="uid://csd1ph7gu0qcv" path="res://assets/keyset/instruction Keys.png" id="2_q4vr7"]
+
+[node name="TrainAIGame" unique_id=256276361 instance=ExtResource("1_nmox5")]
+gameName = "AI Sorting"
+gameHeadline = "Train the sorting AI"
+instructionImages = Array[Texture2D]([ExtResource("2_q4vr7")])
+
+[node name="InstructionHeaderLabel" parent="Control" parent_id_path=PackedInt32Array(986453683) index="2" unique_id=1281117740]
+text = "Train the sorting AI"
+
+[node name="TrainAISort" parent="." index="2" unique_id=489678375 instance=ExtResource("2_7n81g")]

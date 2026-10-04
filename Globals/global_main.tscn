@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cd8env5qppqkn" path="res://Minigames/GAMELIST/CopyGame.tscn" id="5_e3ayd"]
 [ext_resource type="Script" uid="uid://dn6lc4h0wp8hs" path="res://Minigames/minigameHolder.gd" id="5_sa3m8"]
 [ext_resource type="PackedScene" uid="uid://dobvemb2p8vm5" path="res://Minigames/GAMELIST/pcb_route_game.tscn" id="6_sa3m8"]
+[ext_resource type="PackedScene" uid="uid://neyxvfc73kmw" path="res://Minigames/GAMELIST/train_ai_game.tscn" id="7_dyb7p"]
 [ext_resource type="PackedScene" uid="uid://dfkajnloblwqj" path="res://Minigames/level_scene.tscn" id="8_nxkk1"]
 
 [sub_resource type="Resource" id="Resource_knnc8"]
 script = ExtResource("5_sa3m8")
-minigames = Array[PackedScene]([ExtResource("3_t6aev"), ExtResource("4_e3ayd"), ExtResource("5_e3ayd"), ExtResource("6_sa3m8")])
+minigames = Array[PackedScene]([ExtResource("3_t6aev"), ExtResource("4_e3ayd"), ExtResource("5_e3ayd"), ExtResource("6_sa3m8"), ExtResource("7_dyb7p")])
 metadata/_custom_type_script = "uid://dn6lc4h0wp8hs"
 
 [node name="GlobalMain" type="Node" unique_id=1218474025]

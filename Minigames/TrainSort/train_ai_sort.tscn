@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://mxl4nkkiom78"]
+
+[ext_resource type="Texture2D" uid="uid://6ut565vial5v" path="res://Minigames/TrainSort/factory floor.png" id="1_7kxjy"]
+[ext_resource type="Script" uid="uid://dj417rdguykxg" path="res://Minigames/TrainSort/train_ai_sort.gd" id="1_c3mnu"]
+[ext_resource type="PackedScene" uid="uid://cpaapc2dtkbnn" path="res://Utils/Timer.tscn" id="2_5m6gi"]
+[ext_resource type="Texture2D" uid="uid://baa1mihsdnpc8" path="res://Minigames/pcb/circuit board.png" id="2_k25s3"]
+[ext_resource type="Texture2D" uid="uid://cw15mkdm8xj1l" path="res://Minigames/TrainSort/factory box origin.png" id="2_kga4h"]
+[ext_resource type="Script" uid="uid://d146t0gjcoh5v" path="res://Minigames/TrainSort/conveyorItem.gd" id="3_1mttk"]
+[ext_resource type="Material" uid="uid://dkfaepyni8t1p" path="res://Minigames/TrainSort/conveyor shadermat.tres" id="3_fjacw"]
+[ext_resource type="Texture2D" uid="uid://b70npiuagfyhi" path="res://assets/ducky.png" id="3_k25s3"]
+[ext_resource type="Texture2D" uid="uid://bldvpws10lre8" path="res://assets/calipers.png" id="4_0gr6g"]
+[ext_resource type="Texture2D" uid="uid://dwa6iv1cebus0" path="res://Minigames/TrainSort/conveyor rotate.png" id="4_ou1yp"]
+[ext_resource type="Texture2D" uid="uid://ct5gv6ig1f8yp" path="res://Minigames/TrainSort/kennel thing.png" id="6_lpucb"]
+[ext_resource type="Texture2D" uid="uid://csei6wsn6ns63" path="res://Minigames/TrainSort/msg box.png" id="7_lpucb"]
+[ext_resource type="Texture2D" uid="uid://bvwvbs31rq1bx" path="res://Minigames/TrainSort/pointer box.png" id="11_0gr6g"]
+[ext_resource type="Texture2D" uid="uid://clnt0g84cxe4w" path="res://assets/bot-parts/body.png" id="12_ubajt"]
+[ext_resource type="Texture2D" uid="uid://bu3g27i62b140" path="res://assets/bot-parts/eye-l.png" id="13_1mttk"]
+[ext_resource type="Texture2D" uid="uid://4os3cmjx2m5j" path="res://assets/bot-parts/eye-r.png" id="14_5m6gi"]
+[ext_resource type="Texture2D" uid="uid://dwcx8bm4vfpld" path="res://assets/bot-parts/mouth.png" id="15_8cuoa"]
+
+[sub_resource type="Curve2D" id="Curve2D_1mttk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 117, 332, 0, 0, 0, 0, 388, 337)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5m6gi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 394, 332, 3.8567493, -22.038567, -3.8567493, 22.038567, 402, 191, -21.487602, 8.815427, 21.487602, -8.815427, 452, 74, -30.303028, -6.6115704, 30.303028, 6.6115704, 664, 66, -25.895317, -30.853992, 25.895317, 30.853992, 705, 149, -44.628098, -6.6115704, 44.628098, 6.6115704, 866, 249, -10.468319, 13.774104, 10.468319, -13.774104, 1005, 224, 0, 0, 0, 0, 992, 96)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_8cuoa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 393, 336, -21.487602, -14.876033, 21.487602, 14.876033, 589, 349, 26.446281, -18.732782, -26.446281, 18.732782, 577, 499, 0, 0, 0, 0, 289, 543, 0, 0, 0, 0, 91, 565)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_hxycp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 394, 338, -25.344353, -6.060606, 25.344353, 6.060606, 400, 552, -48.484848, 1.1019284, 48.484848, -1.1019284, 763, 560, 0, 0, 0, 0, 1070, 462)
+}
+point_count = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3m8t"]
+radius = 341.32092
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bmv2"]
+radius = 87.488556
+
+[node name="TrainAISort" type="Node2D" unique_id=489678375 node_paths=PackedStringArray("spawnableObjects", "spawningPoint")]
+script = ExtResource("1_c3mnu")
+spawnableObjects = [NodePath("Objects/PCB"), NodePath("Objects/Duck"), NodePath("Objects/Calipers")]
+spawningPoint = NodePath("ItemSpawner")
+
+[node name="TimerScene" parent="." unique_id=152143875 instance=ExtResource("2_5m6gi")]
+z_index = 2
+
+[node name="FactoryFloor" type="Sprite2D" parent="." unique_id=1020999182]
+texture = ExtResource("1_7kxjy")
+centered = false
+
+[node name="ItemSpawner" type="Node2D" parent="." unique_id=1021213834]
+z_index = 1
+position = Vector2(120, 333)
+
+[node name="SpawnTimer" type="Timer" parent="ItemSpawner" unique_id=1992481032]
+
+[node name="FactoryBoxOrigin" type="Sprite2D" parent="." unique_id=1012515150]
+position = Vector2(118, 325)
+scale = Vector2(0.5957031, 0.5957031)
+texture = ExtResource("2_kga4h")
+
+[node name="StartingPath" type="Path2D" parent="." unique_id=1474298522]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_1mttk")
+
+[node name="UP" type="Path2D" parent="StartingPath" unique_id=752034530]
+curve = SubResource("Curve2D_5m6gi")
+
+[node name="RIGHT" type="Path2D" parent="StartingPath" unique_id=28363011]
+curve = SubResource("Curve2D_8cuoa")
+
+[node name="DOWN" type="Path2D" parent="StartingPath" unique_id=1781331014]
+curve = SubResource("Curve2D_hxycp")
+
+[node name="Starting Line" type="Line2D" parent="." unique_id=1153299570]
+unique_name_in_owner = true
+texture_repeat = 2
+material = ExtResource("3_fjacw")
+points = PackedVector2Array(159, 337, 409, 337)
+width = 40.0
+texture = ExtResource("4_ou1yp")
+texture_mode = 1
+
+[node name="UP" type="Line2D" parent="Starting Line" unique_id=1147169882]
+texture_repeat = 2
+material = ExtResource("3_fjacw")
+points = PackedVector2Array(391, 327, 388, 198, 459, 76, 662, 64, 705, 148, 874, 253, 1000, 226, 988, 73)
+width = 40.0
+texture = ExtResource("4_ou1yp")
+texture_mode = 1
+
+[node name="RIGHT" type="Line2D" parent="Starting Line" unique_id=417486727]
+texture_repeat = 2
+material = ExtResource("3_fjacw")
+points = PackedVector2Array(398, 338, 597, 348, 574, 502, 296, 546, 26, 575)
+width = 40.0
+texture = ExtResource("4_ou1yp")
+texture_mode = 1
+
+[node name="DOWN" type="Line2D" parent="Starting Line" unique_id=1299367008]
+texture_repeat = 2
+material = ExtResource("3_fjacw")
+points = PackedVector2Array(390, 350, 404, 557, 766, 562, 1111, 450)
+width = 40.0
+texture = ExtResource("4_ou1yp")
+texture_mode = 1
+
+[node name="Objects" type="Node2D" parent="." unique_id=478084301]
+process_mode = 4
+position = Vector2(5, -234)
+
+[node name="PCB" type="Sprite2D" parent="Objects" unique_id=476544428 node_paths=PackedStringArray("bossNode")]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_k25s3")
+script = ExtResource("3_1mttk")
+bossNode = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="Objects/PCB" unique_id=1912150999]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/PCB/Area2D" unique_id=891969121]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="Duck" type="Sprite2D" parent="Objects" unique_id=1822381320 node_paths=PackedStringArray("bossNode")]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("3_k25s3")
+script = ExtResource("3_1mttk")
+bossNode = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="Objects/Duck" unique_id=1322325859]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Duck/Area2D" unique_id=495085415]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="Calipers" type="Sprite2D" parent="Objects" unique_id=87499931 node_paths=PackedStringArray("bossNode")]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("4_0gr6g")
+script = ExtResource("3_1mttk")
+bossNode = NodePath("../..")
+
+[node name="Area2D" type="Area2D" parent="Objects/Calipers" unique_id=720477690]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Calipers/Area2D" unique_id=1109847301]
+shape = SubResource("CircleShape2D_t3m8t")
+
+[node name="Output1" type="Sprite2D" parent="." unique_id=6780932]
+position = Vector2(981, 59.000004)
+scale = Vector2(0.37109375, 0.37109375)
+texture = ExtResource("6_lpucb")
+
+[node name="MsgBox" type="Sprite2D" parent="Output1" unique_id=1003040138]
+position = Vector2(-269.47372, -45.810524)
+scale = Vector2(0.8631579, 0.8631579)
+texture = ExtResource("7_lpucb")
+offset = Vector2(-12.487549, 21.853653)
+flip_h = true
+
+[node name="Output2" type="Sprite2D" parent="." unique_id=1798945953]
+position = Vector2(58.000008, 576.00006)
+rotation = -1.5707964
+scale = Vector2(0.37109375, 0.37109375)
+texture = ExtResource("6_lpucb")
+
+[node name="MsgBox2" type="Sprite2D" parent="Output2" unique_id=79575948]
+position = Vector2(226.35808, 215.57895)
+rotation = 1.5707964
+scale = Vector2(0.8631579, 0.8631579)
+texture = ExtResource("7_lpucb")
+offset = Vector2(21.853271, 9.366211)
+
+[node name="Output3" type="Sprite2D" parent="." unique_id=2104666602]
+position = Vector2(1095.0001, 441)
+rotation = 1.2740904
+scale = Vector2(0.37109375, 0.37109375)
+texture = ExtResource("6_lpucb")
+
+[node name="MsgBox3" type="Sprite2D" parent="Output3" unique_id=1844525480]
+position = Vector2(-270.56708, 258.2415)
+rotation = -1.2740904
+scale = Vector2(0.86315787, 0.86315787)
+texture = ExtResource("7_lpucb")
+offset = Vector2(-12.487793, 21.853516)
+flip_h = true
+
+[node name="PointerBox" type="Sprite2D" parent="." unique_id=1607360266]
+position = Vector2(395.00003, 338)
+scale = Vector2(0.4235294, 0.4235294)
+texture = ExtResource("11_0gr6g")
+
+[node name="Area2D" type="Area2D" parent="PointerBox" unique_id=576063381]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointerBox/Area2D" unique_id=707097799]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_4bmv2")
+
+[node name="BOT" type="Sprite2D" parent="." unique_id=548907555]
+position = Vector2(107.999985, 112)
+scale = Vector2(0.16944444, 0.16944446)
+texture = ExtResource("12_ubajt")
+
+[node name="Mouth" type="Sprite2D" parent="BOT" unique_id=726607686]
+position = Vector2(-17.704828, 35.409805)
+texture = ExtResource("15_8cuoa")
+
+[node name="LEyeHolder" type="Node2D" parent="BOT" unique_id=1120254061]
+position = Vector2(-59.016304, 47.21311)
+
+[node name="EyeL" type="Sprite2D" parent="BOT/LEyeHolder" unique_id=639697633]
+position = Vector2(0, 2.0820313)
+rotation = 2.172935
+texture = ExtResource("13_1mttk")
+offset = Vector2(94.42621, -106.22949)
+
+[node name="REyeHolder" type="Node2D" parent="BOT" unique_id=518286656]
+position = Vector2(112.13124, 53.11475)
+
+[node name="EyeR" type="Sprite2D" parent="BOT/REyeHolder" unique_id=1557512359]
+position = Vector2(-0.00012207031, -9.721313)
+rotation = 2.3265238
+texture = ExtResource("14_5m6gi")
+offset = Vector2(-82.622925, -94.42621)
+
+[connection signal="timeout" from="ItemSpawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]

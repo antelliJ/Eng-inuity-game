@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dkfaepyni8t1p"]
+
+[ext_resource type="Shader" uid="uid://drnn17pif1d8q" path="res://Minigames/TrainSort/conveyor shader.gdshader" id="1_ckykh"]
+
+[resource]
+shader = ExtResource("1_ckykh")
+shader_parameter/speed = -1.9999996200000005
+shader_parameter/vertical = false
